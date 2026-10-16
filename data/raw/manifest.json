@@ -1,0 +1,26 @@
+[
+  {
+    "file": "twitter_s1.csv",
+    "source_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0207506.s002&type=supplementary",
+    "retrieved_local_date": "2026-10-15",
+    "sha256": "9128c9ae96bfc1aa92d2accc0bdb1cd5782c075da4bbbe0d1ef9902cd192aed8"
+  },
+  {
+    "file": "twitter_codebook.docx",
+    "source_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0207506.s003&type=supplementary",
+    "retrieved_local_date": "2026-10-15",
+    "sha256": "a49df5325dc7bde2e94fd7f5728600232da5c190489256376bfd24676bbca4f3"
+  },
+  {
+    "file": "twitter_filter_rules.docx",
+    "source_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0207506.s001&type=supplementary",
+    "retrieved_local_date": "2026-10-15",
+    "sha256": "0e25f29bea8bee136c717dc136fe89684b00546bd9a9d657e8b0b907d0d8b3c0"
+  },
+  {
+    "file": "EDTT_public.csv",
+    "source_url": "https://zenodo.org/records/19749827/files/EDTT_public.csv?download=1",
+    "retrieved_local_date": "2026-10-15",
+    "sha256": "2d36223bdf7b10810c234b0986a19e8d8e22dc361501a75cba524f11541774f5"
+  }
+]
