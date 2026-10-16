@@ -1,0 +1,3 @@
+source,raw n,analysis n,excluded n,rule
+Twitter,3000,2584,416,ed_about must equal 1
+EDTT,85,85,0,retain all public rows
