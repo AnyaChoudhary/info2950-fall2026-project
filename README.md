@@ -67,9 +67,9 @@ python -m pip install -r requirements.txt jupyterlab
 jupyter lab notebooks/INFO2950_Phase_II.ipynb
 ```
 
-On Windows, activate with `.venv\Scripts\activate` instead. Select the installed Python environment and choose **Restart Kernel and Run All**. The notebook finds the data folder automatically from either the repository root or `notebooks/`. No API key is needed. The full repository includes the data. When opened alone in Colab, the notebook restores the saved inputs from a pinned GitHub snapshot and verifies their checksums.
+On Windows, activate with `.venv\Scripts\activate` instead. Select the installed Python environment and choose **Restart Kernel and Run All**. The notebook finds the data folder automatically from either the repository root or `notebooks/`. No API key is needed. The full repository includes the data. When opened alone in Colab, the notebook restores the saved inputs from a pinned GitHub snapshot.
 
-Execution verifies the raw-file checksums and recreates the intermediate files, processed files, and figures. It does not run either proposed inferential analysis. The PDF and HTML are saved exports of the executed notebook; rerunning cells alone does not regenerate those exports.
+Execution recreates the intermediate files, processed files, and figures. It does not run either proposed inferential analysis. The PDF and HTML are saved exports of the executed notebook; rerunning cells alone does not regenerate those exports.
 
 ## Data handling
 
