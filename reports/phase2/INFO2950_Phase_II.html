@@ -7809,6 +7809,28 @@ a.anchor-link {
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=608730ca">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Key-terms">Key terms<a class="anchor-link" href="#Key-terms">¶</a></h2><ul>
+<li>ED means eating disorder. Pro-ED describes content that presents disordered eating positively or as a goal.</li>
+<li>An annotation or code is a label assigned to content. It describes the post, not a diagnosis of its creator.</li>
+<li>Eligible posts are the posts a coding question applies to. Twitter restraint uses the 326 eating-concern posts as its denominator.</li>
+<li>A structural blank means the codebook skipped that question. It is not treated as a recorded zero.</li>
+<li>EDE means Eating Disorder Examination. EDTT uses its four category names: Restraint, Eating Concern, Shape Concern, and Weight Concern. These are content labels here, not assessments of the people posting.</li>
+<li>Shape concern refers to body shape or appearance. Eating concern refers to food and eating. Weight concern refers to body weight. These labels can overlap. A table's shape instead means rows and columns.</li>
+<li>Restraint refers to deliberately limiting food intake.</li>
+<li>Audio valence estimates musical positivity or brightness. Audio arousal estimates musical energy. Both range from 0 to 1 and do not measure a person's emotions.</li>
+<li>Harmonic ratio describes the proportion of harmonic sound in the audio. Tempo is measured in beats per minute.</li>
+<li>Format means video or photos (a photo slideshow) in EDTT.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b338f7e6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7822,7 +7844,7 @@ a.anchor-link {
 <li>In EDTT, is a restraint label associated with audio valence after accounting for whether the post is a video or photo slideshow?</li>
 </ol>
 <p>Phase II explores question 1. Questions 2 and 3 are planned for the final report and have not been tested. The files describe posts, so they cannot show algorithm effects, engagement effects, diagnoses, or changes in a person's relationship with food. Recovery and social comparison are not measured consistently enough to use as shared outcomes.</p>
-<p>Twitter provides a larger sample of coded posts; EDTT provides a smaller sample with visual and audio features. We analyze them separately because their collection methods and labels differ.</p>
+<p>Twitter provides a larger sample of coded posts; EDTT provides a smaller sample with visual and audio features. We analyzed them separately because their collection methods and labels differ.</p>
 </div>
 </div>
 </div>
@@ -7848,7 +7870,7 @@ a.anchor-link {
 <td>1</td>
 <td>Twitter and EDTT, separately</td>
 <td>Counts and percentages for each label</td>
-<td>None; descriptive summaries</td>
+<td>None, descriptive summaries</td>
 <td>Depends on the label's coding rules</td>
 </tr>
 <tr>
@@ -7867,7 +7889,7 @@ a.anchor-link {
 </tr>
 </tbody>
 </table>
-<p>All measures come from released fields or labels extracted directly from them. For question 3, the planned model will code <code>type</code> as photos versus video; a separate <code>photos</code> column has not been added to the cleaned data. None of these questions requires viewer, engagement, or exposure data.</p>
+<p>All measures come from released fields or labels extracted directly from them. For question 3, the planned model will code <code>type</code> as photos versus video. A separate <code>photos</code> column has not been added to the cleaned data. None of these questions requires viewer, engagement, or exposure data.</p>
 </div>
 </div>
 </div>
@@ -7883,7 +7905,6 @@ a.anchor-link {
 <p>TikTok: Shaveet, Viranda, and Choudhury (2026), <a href="https://doi.org/10.5281/zenodo.19749827">EDTT v2</a>, <a href="https://zenodo.org/records/19749827/files/EDTT_public.csv?download=1">public data</a>, and <a href="https://edenshaveet.github.io/EDTT/">data dictionary</a>. This is a curated, expert-annotated pro-ED content sample assembled through text retrieval and recommendation surfacing. Private post identifiers and transcripts are withheld. The record was published in April 2026; the proposed 2024–2025 collection window was not verified in the public documentation inspected and is not assumed here.</p>
 <p>Project files, cleaning outputs, and documentation are available in the <a href="https://github.com/AnyaChoudhary/info2950-fall2026-project">GitHub repository</a>.</p>
 <p>No scraping, individual contact, account identification, or new annotation was performed. No API credentials were required.</p>
-<h3 id="2.2-Setup">2.2 Setup<a class="anchor-link" href="#2.2-Setup">¶</a></h3><p>Run this notebook with the included data/ directory. It locates the project root automatically when opened from the repository's notebooks/ folder or the extracted bundle. In Colab, if the files are absent, the next cell restores the exact saved inputs from the pinned GitHub snapshot. It then checks file integrity and configures consistent figures. This restores existing project files; the original data collection from publishers occurred separately. A changed raw file fails explicitly rather than silently changing the results.</p>
 </div>
 </div>
 </div>
@@ -7894,7 +7915,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Imports">Imports<a class="anchor-link" href="#Imports">¶</a></h4><p>The analysis uses pandas to organize the data and matplotlib to produce the charts. The remaining tools locate the saved files and check that they have not changed.</p>
+<h4 id="Libraries">Libraries<a class="anchor-link" href="#Libraries">¶</a></h4><p>We used pandas to organize the data and matplotlib to create the charts. Below, we imported these libraries and the tools needed to locate and check the saved files.</p>
 </div>
 </div>
 </div>
@@ -7906,7 +7927,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Import the libraries used below.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We imported the libraries used below.</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">re</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span><span class="o">,</span><span class="w"> </span><span class="nn">platform</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -7920,7 +7941,7 @@ a.anchor-link {
 <span class="kn">import</span><span class="w"> </span><span class="nn">certifi</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">font_manager</span>
 
-<span class="c1"># Show complete definitions in notebook tables.</span>
+<span class="c1"># We displayed complete definitions in notebook tables.</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.max_colwidth'</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -7934,7 +7955,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Find-the-data">Find the data<a class="anchor-link" href="#Find-the-data">¶</a></h4><p>The notebook uses the supplied data folder or retrieves the same saved files from GitHub when they are missing. This allows the analysis to run in Colab without collecting new posts.</p>
+<h4 id="Data-files">Data files<a class="anchor-link" href="#Data-files">¶</a></h4><p>Below, we added a check for the saved data folder. The notebook can retrieve the same files from GitHub if they are missing, allowing it to run in Colab.</p>
 </div>
 </div>
 </div>
@@ -7946,7 +7967,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Find the project folder and restore missing inputs.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We located the project folder and restore missing inputs.</span>
 <span class="n">tls_context</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">create_default_context</span><span class="p">(</span><span class="n">cafile</span><span class="o">=</span><span class="n">certifi</span><span class="o">.</span><span class="n">where</span><span class="p">())</span>
 <span class="n">candidates</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">(),</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="s1">'info2950_project'</span><span class="p">,</span> <span class="o">*</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">.</span><span class="n">parents</span><span class="p">]</span>
 <span class="n">ROOT</span> <span class="o">=</span> <span class="nb">next</span><span class="p">((</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">candidates</span> <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="s1">'data/raw/manifest.json'</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()),</span> <span class="kc">None</span><span class="p">)</span>
@@ -7970,7 +7991,7 @@ a.anchor-link {
                 <span class="n">contents</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
             <span class="k">assert</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span> <span class="o">==</span> <span class="n">item</span><span class="p">[</span><span class="s1">'sha256'</span><span class="p">],</span> <span class="n">name</span>
             <span class="p">(</span><span class="n">raw_folder</span> <span class="o">/</span> <span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">write_bytes</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
-        <span class="c1"># Write the manifest last so an interrupted restore can be retried.</span>
+        <span class="c1"># We saved the manifest last so an interrupted restore can be retried.</span>
         <span class="p">(</span><span class="n">raw_folder</span> <span class="o">/</span> <span class="s1">'manifest.json'</span><span class="p">)</span><span class="o">.</span><span class="n">write_bytes</span><span class="p">(</span><span class="n">manifest_bytes</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
@@ -7996,7 +8017,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Check-the-files">Check the files<a class="anchor-link" href="#Check-the-files">¶</a></h4><p>Before cleaning, we check each source file against its saved checksum. The notebook stops if a file has changed.</p>
+<h4 id="File-checks">File checks<a class="anchor-link" href="#File-checks">¶</a></h4><p>Below, we checked the source files against their saved checksums to confirm that the inputs had not changed.</p>
 </div>
 </div>
 </div>
@@ -8008,7 +8029,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Verify all raw files.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We verified all raw files.</span>
 <span class="n">manifest</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">((</span><span class="n">RAW</span> <span class="o">/</span> <span class="s1">'manifest.json'</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">manifest</span><span class="p">:</span>
     <span class="n">actual</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">((</span><span class="n">RAW</span> <span class="o">/</span> <span class="n">item</span><span class="p">[</span><span class="s1">'file'</span><span class="p">])</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
@@ -8041,7 +8062,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Chart-settings">Chart settings<a class="anchor-link" href="#Chart-settings">¶</a></h4><p>The charts use a consistent font and color scheme. Each figure is saved alongside the data.</p>
+<h4 id="Charts">Charts<a class="anchor-link" href="#Charts">¶</a></h4><p>We used charts to compare the post labels and audio values. Below, we set their appearance and added a function to save each figure.</p>
 </div>
 </div>
 </div>
@@ -8095,8 +8116,8 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.3-Clean-Twitter-data">2.3 Clean Twitter data<a class="anchor-link" href="#2.3-Clean-Twitter-data">¶</a></h3><p><code>shape</code> is a content label for concern about body shape or appearance, such as a focus on thinness or specific body areas. It is different from a table's <code>.shape</code>, which reports its number of rows and columns. The content label does not diagnose a person.</p>
-<p>We keep all original columns so each result can be traced to the source. The cleaned analysis file includes only posts coded as related to eating disorders or body image (<code>ed_about = 1</code>). The intermediate file keeps all 3,000 source rows.</p>
+<h3 id="2.2-Twitter-cleaning">2.2 Twitter cleaning<a class="anchor-link" href="#2.2-Twitter-cleaning">¶</a></h3><p><code>shape</code> is a content label for concern about body shape or appearance, such as a focus on thinness or specific body areas. It is different from a table's <code>.shape</code>, which reports its number of rows and columns. The content label does not diagnose a person.</p>
+<p>We kept all original columns so each result can be traced to the source. The cleaned analysis file includes only posts coded as related to eating disorders or body image (<code>ed_about = 1</code>). The intermediate file keeps all 3,000 source rows.</p>
 </div>
 </div>
 </div>
@@ -8107,7 +8128,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Read-and-check-codes">Read and check codes<a class="anchor-link" href="#Read-and-check-codes">¶</a></h4><p>We read the source data, standardized the column names, and checked the IDs and recorded values. Blank entries remain blank. Most annotation codes are 0 or 1; <code>ed_about</code> also allows 9 for unknown, and <code>id</code> is a row identifier.</p>
+<h4 id="Reading-the-Twitter-data">Reading the Twitter data<a class="anchor-link" href="#Reading-the-Twitter-data">¶</a></h4><p>Below, we read the data, standardized the column names, and checked the IDs and recorded values. We preserved blank entries. Most labels use 0 or 1, while <code>ed_about</code> also uses 9 for unknown relevance.</p>
 </div>
 </div>
 </div>
@@ -8119,7 +8140,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Check that the labels follow the source definitions.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We checked that the labels follow the source definitions.</span>
 <span class="n">tw_raw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">RAW</span> <span class="o">/</span> <span class="s1">'twitter_s1.csv'</span><span class="p">)</span>
 <span class="n">tw</span> <span class="o">=</span> <span class="n">tw_raw</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">tw</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">tw</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
@@ -8141,7 +8162,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Check-when-each-label-applies">Check when each label applies<a class="anchor-link" href="#Check-when-each-label-applies">¶</a></h4><p>Image labels apply to shape-concern posts; body-image details apply only when those posts have an image. Restraint and binge/purge labels apply only to eating-concern posts. Aversion follows the source's <code>noconcern</code> rule.</p>
+<h4 id="Check-when-each-label-applies">Check when each label applies<a class="anchor-link" href="#Check-when-each-label-applies">¶</a></h4><p>Image labels apply to shape-concern posts. Body-image details apply only when those posts have an image. Restraint and binge/purge labels apply only to eating-concern posts. Aversion follows the source's <code>noconcern</code> rule.</p>
 <p>The checks below confirm that labels are present where required and blank where the codebook skips them. These skipped entries stay blank instead of becoming zeros.</p>
 </div>
 </div>
@@ -8154,7 +8175,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Check the codebook skip rules.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We checked the codebook skip rules.</span>
 <span class="n">eligible</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'ed_about'</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">tw</span><span class="o">.</span><span class="n">index</span><span class="p">)}</span>
 <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'shape'</span><span class="p">,</span> <span class="s1">'eating'</span><span class="p">,</span> <span class="s1">'weight'</span><span class="p">,</span> <span class="s1">'noconcern'</span><span class="p">]:</span>
     <span class="n">eligible</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">tw</span><span class="p">[</span><span class="s1">'ed_about'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
@@ -8336,7 +8357,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Keep-related-posts-and-flag-conflicts">Keep related posts and flag conflicts<a class="anchor-link" href="#Keep-related-posts-and-flag-conflicts">¶</a></h4><p>The analysis includes posts coded as related to eating disorders or body image (<code>ed_about = 1</code>). Eleven source rows say <code>noconcern = 0</code> even though shape, eating, and weight are all zero. We flag them and preserve their original labels because the released data cannot tell us which label is wrong. Repeated code patterns are not removed: different posts can share the same labels.</p>
+<h4 id="Keep-related-posts-and-flag-conflicts">Keep related posts and flag conflicts<a class="anchor-link" href="#Keep-related-posts-and-flag-conflicts">¶</a></h4><p>The analysis includes posts coded as related to eating disorders or body image (<code>ed_about = 1</code>). Eleven source rows say <code>noconcern = 0</code> even though shape, eating, and weight are all zero. We flagged them and preserved their original labels because the released data cannot tell us which label is wrong. Repeated code patterns are not removed: different posts can share the same labels.</p>
 </div>
 </div>
 </div>
@@ -8348,10 +8369,10 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Save the full validated table and the related-post subset.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We saved the full validated table and the related-post subset.</span>
 <span class="n">tw</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">INTER</span> <span class="o">/</span> <span class="s1">'twitter_validated.csv'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">twitter</span> <span class="o">=</span> <span class="n">tw</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">tw</span><span class="p">[</span><span class="s1">'ed_about'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="c1"># Flag conflicting labels without changing the originals.</span>
+<span class="c1"># We flagged conflicting labels without changing the originals.</span>
 <span class="n">expected_none</span> <span class="o">=</span> <span class="p">(</span><span class="n">twitter</span><span class="p">[[</span><span class="s1">'shape'</span><span class="p">,</span> <span class="s1">'eating'</span><span class="p">,</span> <span class="s1">'weight'</span><span class="p">]]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 <span class="n">logic_mismatch</span> <span class="o">=</span> <span class="p">(</span><span class="n">twitter</span><span class="p">[</span><span class="s1">'noconcern'</span><span class="p">]</span> <span class="o">!=</span> <span class="n">expected_none</span><span class="p">)</span>
 <span class="n">twitter</span><span class="p">[</span><span class="s1">'noconcern_inconsistent'</span><span class="p">]</span> <span class="o">=</span> <span class="n">logic_mismatch</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'Int64'</span><span class="p">)</span>
@@ -8441,9 +8462,9 @@ Retained related posts: 2584 | Excluded unrelated/unknown: 416
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.4-Clean-TikTok-data">2.4 Clean TikTok data<a class="anchor-link" href="#2.4-Clean-TikTok-data">¶</a></h3><p>The public EDTT data do not include post IDs. We assign <code>record_id</code> from the original row order solely to track this file. We check exact duplicates but do not infer duplicate posts from similar summaries or shared audio.</p>
-<p>We standardize column names, trim surrounding whitespace, preserve annotation wording, validate numeric ranges and post format, and derive indicators from explicit category headers. Header matching is case-insensitive and allows a header after either a semicolon or a colon; this accommodates an observed separator inconsistency in the visual annotations. We do not silently fix item-level spelling errors or reinterpret free text.</p>
-<p>A blank EDE subscale field remains unknown for all four derived EDE indicators; it is not recoded to four zeros. A zero on a nonblank field means the category was not recorded there, not that a clinical symptom is absent. Blank diagnostic fields are also preserved; their meaning is not resolved by the inspected dictionary. Numeric audio labels are checked against the dictionary's thresholds, and disagreements are reported rather than overwritten.</p>
+<h3 id="2.3-TikTok-cleaning">2.3 TikTok cleaning<a class="anchor-link" href="#2.3-TikTok-cleaning">¶</a></h3><p>The public EDTT data do not include post IDs. We assigned <code>record_id</code> from the original row order solely to track this file. We checked exact duplicates but did not infer duplicate posts from similar summaries or shared audio.</p>
+<p>We standardized column names, trimmed surrounding whitespace, preserved annotation wording, checked numeric ranges and post format, and derived indicators from explicit category headers. Header matching is case-insensitive and allows a header after either a semicolon or a colon. This accommodates an observed separator inconsistency in the visual annotations. We left item-level spelling unchanged and did not reinterpret the annotation text.</p>
+<p>A blank EDE subscale field remains unknown for all four derived EDE indicators. It is not recoded to four zeros. A zero on a nonblank field means the category was not recorded there, not that a clinical symptom is absent. Blank diagnostic fields are also preserved. Their meaning is not resolved by the inspected dictionary. Numeric audio labels are checked against the dictionary's thresholds, and disagreements are reported rather than overwritten.</p>
 </div>
 </div>
 </div>
@@ -8454,7 +8475,7 @@ Retained related posts: 2584 | Excluded unrelated/unknown: 416
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Read-and-tidy-the-columns">Read and tidy the columns<a class="anchor-link" href="#Read-and-tidy-the-columns">¶</a></h4><p>We retained all 13 source fields, removed extra spaces, and standardized the column names. An added row number identifies each record within this file; it is not a TikTok post ID.</p>
+<h4 id="Read-and-tidy-the-columns">Read and tidy the columns<a class="anchor-link" href="#Read-and-tidy-the-columns">¶</a></h4><p>Below, we retained all 13 source fields, removed extra spaces, and standardized the column names. An added row number identifies each record within this file. It is not a TikTok post ID.</p>
 </div>
 </div>
 </div>
@@ -8466,7 +8487,7 @@ Retained related posts: 2584 | Excluded unrelated/unknown: 416
 <div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Tidy column names and keep the original text and blank entries.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We tidied column names and keep the original text and blank entries.</span>
 <span class="n">tt_raw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">RAW</span> <span class="o">/</span> <span class="s1">'EDTT_public.csv'</span><span class="p">)</span>
 <span class="n">tt</span> <span class="o">=</span> <span class="n">tt_raw</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">tt</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'[^a-z0-9]+'</span><span class="p">,</span> <span class="s1">'_'</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">'_'</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">tt</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
@@ -8485,7 +8506,7 @@ Retained related posts: 2584 | Excluded unrelated/unknown: 416
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Check-format-and-audio-values">Check format and audio values<a class="anchor-link" href="#Check-format-and-audio-values">¶</a></h4><p>We checked the post formats and audio values against the source definitions. Tempo must be positive, and scores defined on a 0-to-1 scale must fall within that range. We saved this version before adding category labels.</p>
+<h4 id="Check-format-and-audio-values">Check format and audio values<a class="anchor-link" href="#Check-format-and-audio-values">¶</a></h4><p>Below, we checked the post formats and audio values against the source definitions. Tempo must be positive, and scores defined on a 0-to-1 scale must fall within that range. We saved this version before adding category labels.</p>
 </div>
 </div>
 </div>
@@ -8497,7 +8518,7 @@ Retained related posts: 2584 | Excluded unrelated/unknown: 416
 <div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Validate the source fields.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We checked the source fields.</span>
 <span class="k">assert</span> <span class="n">tt</span><span class="p">[</span><span class="s1">'type'</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">'video'</span><span class="p">,</span> <span class="s1">'photos'</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 <span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'audio_tempo_bpm'</span><span class="p">,</span> <span class="s1">'audio_valence'</span><span class="p">,</span> <span class="s1">'audio_arousal'</span><span class="p">,</span> <span class="s1">'harmonic_ratio'</span><span class="p">,</span> <span class="s1">'mode_major'</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
@@ -8520,7 +8541,7 @@ Retained related posts: 2584 | Excluded unrelated/unknown: 416
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Turn-category-headers-into-labels">Turn category headers into labels<a class="anchor-link" href="#Turn-category-headers-into-labels">¶</a></h4><p>We extracted four EDE labels and seven visual labels from the headings in the original annotations. A recorded header becomes 1; an unrecorded header in nonblank text becomes 0. Blank EDE text stays unknown in all four labels. Header matching handles the separator variations found in the source without rewriting the annotation text.</p>
+<h4 id="Turn-category-headers-into-labels">Turn category headers into labels<a class="anchor-link" href="#Turn-category-headers-into-labels">¶</a></h4><p>Below, we extracted four EDE labels and seven visual labels from the headings in the original annotations. A recorded header becomes 1. An unrecorded header in nonblank text becomes 0. Blank EDE text stays unknown in all four labels. Header matching handles the separator variations found in the source without rewriting the annotation text.</p>
 </div>
 </div>
 </div>
@@ -8532,7 +8553,7 @@ Retained related posts: 2584 | Excluded unrelated/unknown: 416
 <div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Extract only the named category headers.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We extracted only the named category headers.</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">header_flag</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">header</span><span class="p">):</span>
     <span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">'(?:^|[;:])\s*'</span> <span class="o">+</span> <span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">header</span><span class="p">)</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">'\s*:'</span>
     <span class="k">return</span> <span class="n">series</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">case</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'Int64'</span><span class="p">)</span>
@@ -8549,7 +8570,7 @@ Retained related posts: 2584 | Excluded unrelated/unknown: 416
     <span class="n">tt</span><span class="p">[</span><span class="s1">'visual_'</span> <span class="o">+</span> <span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">header_flag</span><span class="p">(</span><span class="n">tt</span><span class="p">[</span><span class="s1">'visual_elements'</span><span class="p">],</span> <span class="n">header</span><span class="p">)</span>
 <span class="n">ede_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'ede_'</span> <span class="o">+</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">ede_headers</span><span class="p">]</span>
 <span class="n">visual_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'visual_'</span> <span class="o">+</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">visual_headers</span><span class="p">]</span>
-<span class="c1"># Ensure all nonblank annotations contain recognized categories.</span>
+<span class="c1"># We confirmed all nonblank annotations contain recognized categories.</span>
 <span class="k">assert</span> <span class="n">tt</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">tt</span><span class="o">.</span><span class="n">ede_subscale_items</span><span class="o">.</span><span class="n">notna</span><span class="p">(),</span> <span class="n">ede_cols</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 <span class="k">assert</span> <span class="n">tt</span><span class="p">[</span><span class="n">visual_cols</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 <span class="k">assert</span> <span class="n">tt</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">tt</span><span class="o">.</span><span class="n">ede_subscale_items</span><span class="o">.</span><span class="n">isna</span><span class="p">(),</span> <span class="n">ede_cols</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
@@ -8566,7 +8587,7 @@ Retained related posts: 2584 | Excluded unrelated/unknown: 416
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Check-audio-labels-and-save">Check audio labels and save<a class="anchor-link" href="#Check-audio-labels-and-save">¶</a></h4><p>We compared the low, medium, and high audio labels with the published thresholds. Any disagreement is reported without changing the source label. All 85 posts remain in the saved data.</p>
+<h4 id="Check-audio-labels-and-save">Check audio labels and save<a class="anchor-link" href="#Check-audio-labels-and-save">¶</a></h4><p>Below, we compared the low, medium, and high audio labels with the published thresholds. Any disagreement is reported without changing the source label. All 85 posts remain in the saved data.</p>
 </div>
 </div>
 </div>
@@ -8578,7 +8599,7 @@ Retained related posts: 2584 | Excluded unrelated/unknown: 416
 <div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Check audio categories and save the cleaned table.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We checked audio categories and save the cleaned table.</span>
 <span class="n">label_audit</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'audio_valence'</span><span class="p">,</span> <span class="s1">'audio_arousal'</span><span class="p">]:</span>
     <span class="n">expected_labels</span> <span class="o">=</span> <span class="p">[]</span>
@@ -8751,7 +8772,7 @@ Known EDE annotation: 79 | Blank EDE annotation: 6
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.5-What-we-keep">2.5 What we keep<a class="anchor-link" href="#2.5-What-we-keep">¶</a></h3><p>The cleaning produces two separate analysis tables. We kept the datasets separate because their posts cannot be matched and their collection methods differ. Eleven Twitter rows have <code>noconcern=0</code> while all three concern fields are zero. We flag these rows in <code>noconcern_inconsistent</code>, retain the original codes, and save their synthetic IDs separately. The aversion denominator continues to follow the original source eligibility code, not a reconstructed universe. Without the original posts, we cannot determine which label is wrong. No rows are removed from EDTT; Twitter excludes only the 342 unrelated and 74 unknown-relevance rows from its main analysis. We do not impute values, remove outliers, deduplicate identical annotation patterns, or recode structural blanks to zero.</p>
+<h3 id="2.4-What-we-kept">2.4 What we kept<a class="anchor-link" href="#2.4-What-we-kept">¶</a></h3><p>The cleaning produced two separate analysis tables. We kept the datasets separate because their posts cannot be matched and their collection methods differ. Eleven Twitter rows have <code>noconcern=0</code> while all three concern fields are zero. We flagged these rows in <code>noconcern_inconsistent</code>, retained the original codes, and saved their synthetic IDs separately. The aversion denominator continues to follow the original source eligibility code, not a reconstructed universe. Without the original posts, we cannot determine which label is wrong. No rows were removed from EDTT; Twitter excluded only the 342 unrelated and 74 unknown-relevance rows from its main analysis. We did not fill missing values, remove outliers, remove repeated annotation patterns, or change structural blanks to zero.</p>
 <p>Intermediate files preserve the complete validated Twitter release and normalized EDTT release. Processed files preserve the variables needed for future analysis. The table below records the number of posts retained. Any later changes to these exclusions will be documented.</p>
 </div>
 </div>
@@ -8763,25 +8784,25 @@ Known EDE annotation: 79 | Blank EDE annotation: 6
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Why-these-columns-stay">Why these columns stay<a class="anchor-link" href="#Why-these-columns-stay">¶</a></h4><p>No source columns are dropped. Keeping a column for traceability does not mean using it in a model.</p>
+<h4 id="Why-we-kept-these-columns">Why we kept these columns<a class="anchor-link" href="#Why-we-kept-these-columns">¶</a></h4><p>We kept every source column. Keeping a column for traceability does not mean using it in a model.</p>
 <table>
 <thead>
 <tr>
 <th>Columns</th>
-<th>Why we keep them</th>
-<th>How we use them</th>
+<th>Why we kept them</th>
+<th>Their role in the analysis</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Twitter <code>id</code>, <code>ed_about</code></td>
 <td>Track rows and explain inclusion</td>
-<td>ID is not a predictor; <code>ed_about</code> selects related posts</td>
+<td>ID is not a predictor, <code>ed_about</code> selects related posts</td>
 </tr>
 <tr>
 <td>Twitter <code>shape</code>, <code>eating</code>, <code>weight</code></td>
 <td>Describe the main concern labels</td>
-<td>EDA; <code>shape</code> and <code>eating</code> support question 2</td>
+<td>EDA, <code>shape</code> and <code>eating</code> support question 2</td>
 </tr>
 <tr>
 <td>Twitter image, restraint, purge, and aversion codes</td>
@@ -8796,12 +8817,12 @@ Known EDE annotation: 79 | Blank EDE annotation: 6
 <tr>
 <td>EDTT <code>type</code> and audio fields</td>
 <td>Describe format and sound</td>
-<td>EDA; format and valence support question 3</td>
+<td>EDA, format and valence support question 3</td>
 </tr>
 <tr>
 <td>EDTT text and annotation fields</td>
 <td>Trace derived labels to their source</td>
-<td>Parse category headers; do not quote sensitive summaries</td>
+<td>Parse category headers, do not quote sensitive summaries</td>
 </tr>
 <tr>
 <td>EDTT diagnostic text</td>
@@ -8811,11 +8832,11 @@ Known EDE annotation: 79 | Blank EDE annotation: 6
 <tr>
 <td>EDTT row number, category labels, and count</td>
 <td>Track rows and summarize recorded categories</td>
-<td>EDA; <code>ede_restraint</code> supports question 3</td>
+<td>EDA, <code>ede_restraint</code> supports question 3</td>
 </tr>
 </tbody>
 </table>
-<p>Twitter excludes 342 unrelated and 74 unknown-relevance posts from the analysis table. EDTT excludes no rows. We do not fill in missing values, remove outliers, or combine the sources.</p>
+<p>Twitter excluded 342 unrelated and 74 unknown-relevance posts from the analysis table. EDTT excluded no rows. We did not fill in missing values, remove outliers, or combine the sources.</p>
 </div>
 </div>
 </div>
@@ -8827,7 +8848,7 @@ Known EDE annotation: 79 | Blank EDE annotation: 6
 <div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Record how many posts remain and why any were excluded.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We recorded how many posts remain and why any were excluded.</span>
 <span class="n">flow</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
  <span class="p">[</span><span class="s1">'Twitter'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tw_raw</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">twitter</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">tw_raw</span><span class="p">)</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">twitter</span><span class="p">),</span> <span class="s1">'ed_about must equal 1'</span><span class="p">],</span>
  <span class="p">[</span><span class="s1">'EDTT'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tt_raw</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">tiktok</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">'retain all public rows'</span><span class="p">]</span>
@@ -8913,7 +8934,7 @@ EDTT: 85 rows, 26 columns
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Ready-for-EDA">Ready for EDA<a class="anchor-link" href="#Ready-for-EDA">¶</a></h4><p>The next checks confirm that cleaning preserved the expected rows, columns, and missing-label rules. The EDA below uses these same two tables.</p>
+<h4 id="Final-data-checks">Final data checks<a class="anchor-link" href="#Final-data-checks">¶</a></h4><p>Below, we checked the number of rows and columns and confirmed that the missing-label rules were preserved. We used these two tables throughout the exploratory analysis.</p>
 </div>
 </div>
 </div>
@@ -8925,7 +8946,7 @@ EDTT: 85 rows, 26 columns
 <div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Check the final tables before exploring the data.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We checked the final tables before exploring the data.</span>
 <span class="k">assert</span> <span class="n">twitter</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">2584</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">tiktok</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">85</span><span class="p">,</span> <span class="mi">26</span><span class="p">)</span>
 <span class="k">assert</span> <span class="p">(</span><span class="n">twitter</span><span class="p">[</span><span class="s1">'ed_about'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
@@ -8981,7 +9002,7 @@ EDTT: 85 rows, 26 columns
 <td>Twitter cleaned</td>
 <td style="text-align:right">2,584</td>
 <td style="text-align:right">18</td>
-<td>All 17 source columns plus a conflict flag; only related posts</td>
+<td>All 17 source columns plus a conflict flag, only related posts</td>
 </tr>
 <tr>
 <td>EDTT raw</td>
@@ -8997,7 +9018,7 @@ EDTT: 85 rows, 26 columns
 </tr>
 </tbody>
 </table>
-<p>Twitter has more posts but fewer kinds of measures. Its ID is an identifier; its relevance code allows 0, 1, or 9; the remaining codes are 0 or 1 where applicable. EDTT has fewer posts and more text and audio features. Only 79 posts have nonblank EDE text, which limits the precision of the planned model.</p>
+<p>Twitter has more posts but fewer kinds of measures. Its ID is an identifier. Its relevance code allows 0, 1, or 9. The remaining codes are 0 or 1 where applicable. EDTT has fewer posts and more text and audio features. Only 79 posts have nonblank EDE text, which limits the precision of the planned model.</p>
 </div>
 </div>
 </div>
@@ -9008,11 +9029,11 @@ EDTT: 85 rows, 26 columns
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Why-the-datasets-were-made">Why the datasets were made<a class="anchor-link" href="#Why-the-datasets-were-made">¶</a></h3><p><strong>Twitter:</strong> One row represents one sampled post. The analysis table has 2,584 rows and retains the 17 source columns plus a logical-inconsistency flag. <code>id</code> is a synthetic row identifier; the remaining fields are categorical annotations, not symptom severity scores. The release was created to characterize ED/body-image expression. Keyword selection and conditional coding determine which posts and features are represented. Multiple posts may come from one person, but this release cannot identify clusters.</p>
+<h3 id="Why-the-datasets-were-made">Why the datasets were made<a class="anchor-link" href="#Why-the-datasets-were-made">¶</a></h3><p><strong>Twitter:</strong> One row represents one sampled post. The analysis table has 2,584 rows and retains the 17 source columns plus a logical-inconsistency flag. <code>id</code> is a synthetic row identifier. The remaining fields are categorical annotations, not symptom severity scores. The release was created to characterize ED/body-image expression. Keyword selection and conditional coding determine which posts and features are represented. Multiple posts may come from one person, but this release cannot identify clusters.</p>
 <p><strong>EDTT:</strong> One row represents one curated TikTok post (video or photo slideshow). The release was created to study multimodal pro-ED content. The processed table has 85 rows. It keeps all 13 source fields and adds a row number, 11 category labels, and a count of recorded EDE categories. Text fields contain summaries and annotations, not the original private transcript. Audio valence and arousal are heuristic musical features, not the emotions of a creator or viewer. The original five numeric fields are tempo in beats per minute, valence, arousal, harmonic ratio, and major/minor mode.</p>
-<p><strong>No common clinical scale:</strong> Twitter's restraint field is assessed only inside eating-concern posts, whereas EDTT lists restraint as a separate category. Even shared labels do not establish identical measurement. We retain source-specific definitions.</p>
-<h3 id="Privacy-and-consent">Privacy and consent<a class="anchor-link" href="#Privacy-and-consent">¶</a></h3><p>The Twitter paper reports public posts and an institutional determination that its study did not involve human subjects. That does not show that every poster knew about this specific secondary analysis or consented to it. The EDTT release describes privacy protections and withheld private fields; the inspected documentation does not establish individual notification or consent. We use aggregate summaries, avoid quoting sensitive post summaries, and make no attempts at re-identification. Post annotations cannot diagnose the people who posted them.</p>
-<h3 id="What-the-data-can-show">What the data can show<a class="anchor-link" href="#What-the-data-can-show">¶</a></h3><p>These tables support descriptive secondary analysis and prespecified associations between annotations within each sample. They are unsuitable for diagnosing creators, evaluating moderation decisions about particular accounts, estimating engagement, or ranking platforms by harm. There is no predefined train/test split; no prediction benchmark or model training is performed in Phase II. The analysis-ready files preserve source annotations so a reviewer can trace every derived flag back to its input. Questions about the original annotation or collection should be directed to the source authors rather than inferred from the summaries.</p>
+<p><strong>No common clinical scale:</strong> Twitter's restraint field is assessed only inside eating-concern posts, whereas EDTT lists restraint as a separate category. Even shared labels do not establish identical measurement. We retained each source's definitions.</p>
+<h3 id="Privacy-and-consent">Privacy and consent<a class="anchor-link" href="#Privacy-and-consent">¶</a></h3><p>The Twitter paper reports public posts and an institutional determination that its study did not involve human subjects. That does not show that every poster knew about this specific secondary analysis or consented to it. The EDTT release describes privacy protections and withheld private fields. The inspected documentation does not establish individual notification or consent. We used aggregate summaries, avoided quoting sensitive post summaries, and made no attempts to identify creators. Post annotations cannot diagnose the people who posted them.</p>
+<h3 id="What-the-data-can-show">What the data can show<a class="anchor-link" href="#What-the-data-can-show">¶</a></h3><p>These tables support descriptive secondary analysis and prespecified associations between annotations within each sample. They are unsuitable for diagnosing creators, evaluating moderation decisions about particular accounts, estimating engagement, or ranking platforms by harm. There is no predefined train/test split. No prediction benchmark or model training is performed in Phase II. The analysis-ready files preserve source annotations so a reviewer can trace every derived flag back to its input. Questions about the original annotation or collection should be directed to the source authors rather than inferred from the summaries.</p>
 </div>
 </div>
 </div>
@@ -9024,8 +9045,8 @@ EDTT: 85 rows, 26 columns
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Cleaning-and-missing-values">Cleaning and missing values<a class="anchor-link" href="#Cleaning-and-missing-values">¶</a></h3><p>Twitter column names were lowercased and codes converted to nullable integers. We checked allowed values and skip rules, kept 2,584 related posts, and flagged 11 conflicts without changing them. There are no unexpected blanks under the codebook rules. For example, restraint is blank for 2,674 of the original 3,000 rows because it is coded only for the 326 posts with a recorded eating concern. The other rows include unrelated and unknown-relevance posts, not just posts coded as having no eating concern.</p>
-<p>For EDTT, we standardized names, trimmed spaces, checked ranges, and extracted four EDE and seven visual category labels. The audio labels match the published thresholds, with zero disagreements. Six blank EDE subscale fields remain unknown. Another 58 rows have blank EDE diagnostic text; its meaning is not explained, so diagnostic text is retained but not analyzed.</p>
-<p>Neither dataset was merged, imputed, or filtered for outliers. Similar annotation patterns were retained. The cleaning steps and saved intermediate files are in Sections 2.3 through 2.5.</p>
+<p>For EDTT, we standardized names, trimmed spaces, checked ranges, and extracted four EDE and seven visual category labels. The audio labels match the published thresholds, with zero disagreements. Six blank EDE subscale fields remain unknown. Another 58 rows have blank EDE diagnostic text. Its meaning is not explained, so diagnostic text is retained but not analyzed.</p>
+<p>Neither dataset was merged, imputed, or filtered for outliers. Similar annotation patterns were retained. The cleaning steps and saved intermediate files are in Sections 2.2 through 2.4.</p>
 </div>
 </div>
 </div>
@@ -9036,18 +9057,6 @@ EDTT: 85 rows, 26 columns
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Key-terms">Key terms<a class="anchor-link" href="#Key-terms">¶</a></h3><ul>
-<li>ED means eating disorder. Pro-ED describes content that presents disordered eating positively or as a goal.</li>
-<li>An annotation or code is a label assigned to content. It describes the post, not a diagnosis of its creator.</li>
-<li>Eligible posts are the posts a coding question applies to. Twitter restraint uses the 326 eating-concern posts as its denominator.</li>
-<li>A structural blank means the codebook skipped that question. It is not treated as a recorded zero.</li>
-<li>EDE means Eating Disorder Examination. EDTT uses its four category names: Restraint, Eating Concern, Shape Concern, and Weight Concern. These are content labels here, not assessments of the people posting.</li>
-<li>Shape concern refers to body shape or appearance; eating concern refers to food and eating; weight concern refers to body weight. These labels can overlap. A table's shape instead means rows and columns.</li>
-<li>Restraint refers to deliberately limiting food intake.</li>
-<li>Audio valence estimates musical positivity or brightness. Audio arousal estimates musical energy. Both range from 0 to 1 and do not measure a person's emotions.</li>
-<li>Harmonic ratio describes the proportion of harmonic sound in the audio; tempo is measured in beats per minute.</li>
-<li>Format means video or photos (a photo slideshow) in EDTT.</li>
-</ul>
 <h3 id="Column-guide">Column guide<a class="anchor-link" href="#Column-guide">¶</a></h3><p>The tables below describe the source fields and added columns. Blank values follow the rules described in Section 2.</p>
 </div>
 </div>
@@ -9060,7 +9069,7 @@ EDTT: 85 rows, 26 columns
 <div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Describe what each Twitter column means.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We described what each Twitter column means.</span>
 <span class="n">tw_dictionary</span> <span class="o">=</span> <span class="p">[</span>
  <span class="p">(</span><span class="s1">'id'</span><span class="p">,</span> <span class="s1">'Synthetic unique row ID'</span><span class="p">,</span> <span class="s1">'All 3,000'</span><span class="p">),</span>
  <span class="p">(</span><span class="s1">'ed_about'</span><span class="p">,</span> <span class="s1">'0 unrelated; 1 related; 9 unknown'</span><span class="p">,</span> <span class="s1">'All 3,000'</span><span class="p">),</span>
@@ -9190,7 +9199,7 @@ EDTT: 85 rows, 26 columns
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="TikTok-columns">TikTok columns<a class="anchor-link" href="#TikTok-columns">¶</a></h4><p>Original annotation text is retained alongside the added category labels so the extraction can be checked.</p>
+<h4 id="TikTok-columns">TikTok columns<a class="anchor-link" href="#TikTok-columns">¶</a></h4><p>We retained the original annotation text alongside the added category labels so the extraction can be checked.</p>
 </div>
 </div>
 </div>
@@ -9202,7 +9211,7 @@ EDTT: 85 rows, 26 columns
 <div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Describe the original and added TikTok columns.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We described the original and added TikTok columns.</span>
 <span class="n">tt_dictionary</span> <span class="o">=</span> <span class="p">[</span>
  <span class="p">(</span><span class="s1">'type'</span><span class="p">,</span> <span class="s1">'video or photos'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'summary'</span><span class="p">,</span> <span class="s1">'Public descriptive summary'</span><span class="p">),</span>
  <span class="p">(</span><span class="s1">'ede_subscale_items'</span><span class="p">,</span> <span class="s1">'Recorded EDE category/item text'</span><span class="p">),</span>
@@ -9338,21 +9347,20 @@ EDTT: 85 rows, 26 columns
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="4.-Limitations">4. Limitations<a class="anchor-link" href="#4.-Limitations">¶</a></h2><ul>
-<li><strong>Selected samples.</strong> Both collections focus on ED-related material. Twitter keywords and EDTT's curation can overrepresent particular expressions. Their observed percentages are not prevalence estimates for all social media, all eating disorders, or all users. Recommendation surfacing during collection is not a measured user exposure or a randomized algorithm intervention.</li>
-<li><strong>Different sources.</strong> Source size, annotation rules, formats, selection, and time differ. A difference between datasets cannot isolate a platform effect or a historical trend. EDTT post dates are absent from the public file.</li>
-<li><strong>Missing outcomes.</strong> Neither dataset includes likes, view counts, viewer exposure, longitudinal food attitudes, or clinical outcomes. Thus engagement associations and changes in people's food relationships cannot be estimated here.</li>
-<li><strong>Labels can be imperfect.</strong> A category is an annotator's reading of content. The 11 Twitter inconsistencies may affect co-occurrence estimates; without text, we cannot resolve them. Codebook skip rules create structural blanks in Twitter; EDTT's blank EDE fields have an unresolved interpretation. Treating either kind of blank as zero would distort denominators. The EDTT parser extracts categories but cannot repair all ambiguity in free-text descriptions.</li>
-<li><strong>Small samples and repeated creators.</strong> Repeated creators, retweets, or reused audio can make rows dependent. Missing creator identifiers prevent reliable cluster adjustment. With only 85 EDTT rows (79 with EDE text), estimates can be unstable. Statistical intervals in future work will rely on assumptions that the release cannot fully verify.</li>
-<li><strong>Posts are not diagnoses.</strong> Irony, criticism, context, and annotation uncertainty complicate interpretation. A musical valence score is not emotional valence of the message. Equating labels with illness could stigmatize creators or lead to inappropriate moderation.</li>
-<li><strong>Privacy.</strong> We report aggregates and do not reproduce summaries, usernames, images, or harmful instructions. We cannot verify the expectations of each original poster. Public availability does not erase ethical responsibilities.</li>
+<li>Selected samples: Both datasets focused on eating-disorder-related content. Their frequencies do not represent all posts or social media users.</li>
+<li>Different sources: Collection methods, formats, dates, and coding rules differed. We could not interpret differences between the samples as platform effects or changes over time.</li>
+<li>Missing outcomes: Neither dataset included engagement, viewer exposure, or changes in food attitudes. These outcomes could not be studied with the available data.</li>
+<li>Imperfect labels: Annotations reflect how researchers interpreted each post. The 11 conflicting Twitter records could not be resolved without the original content.</li>
+<li>Missing annotations: Twitter blanks followed the coding rules, while six EDTT category fields had an unclear meaning. Treating these blanks as zero would change the denominators and misrepresent the evidence.</li>
+<li>Small sample: Only 79 EDTT posts had the annotations needed for the planned model. Estimates from this group may be imprecise.</li>
+<li>Repeated creators: Posts may share creators or audio. Without reliable identifiers, we could not account for this dependence, which may make confidence intervals too narrow.</li>
+<li>Posts are not diagnoses: Content labels and musical scores do not establish a person's symptoms or feelings. Treating them as diagnoses could stigmatize creators.</li>
+<li>Privacy: We reported aggregate results and avoided reproducing sensitive post summaries. Public availability did not establish that creators expected this use of their posts.</li>
+<li>Removed content: Posts removed before collection may be absent. The files do not include removal histories, so the extent of this bias remains unknown.</li>
+<li>Language and time: Twitter included English-language posts from January 2015. Changes in language and platform practices limit how well the sample describes current content.</li>
+<li>Different definitions: The research teams used separate codebooks. Similar category names do not guarantee equivalent measurements across the datasets.</li>
 </ul>
-<p>These limitations motivate within-source descriptions and cautious association models. A future causal question would require an appropriate exposure/outcome study and its own ethical review and consent process.</p>
-<ul>
-<li><strong>Removed posts may be missing.</strong> If posts were removed before collection, they could not enter the samples. That could favor content that remained available longer. These files do not show removal histories, so we cannot measure the size or direction of this bias.</li>
-<li><strong>Language and time matter.</strong> Twitter includes English-language posts from January 2015. Changes in language, hashtags, platform norms, and moderation may limit how well these results describe present-day content.</li>
-<li><strong>Labels depend on the codebook.</strong> The research teams used different coding schemes. Similar category names do not guarantee the same meaning or coding decisions, which is another reason not to compare the sources' percentages directly.</li>
-</ul>
-<p>Each research question therefore describes or examines associations within a source. It does not compare platform effects or estimate changes in people.</p>
+<p>We therefore focused on patterns within each sample. The planned models will describe associations between post features, not effects on people's health or attitudes.</p>
 </div>
 </div>
 </div>
@@ -9363,8 +9371,8 @@ EDTT: 85 rows, 26 columns
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="5.-Exploratory-data-analysis">5. Exploratory data analysis<a class="anchor-link" href="#5.-Exploratory-data-analysis">¶</a></h2><h3 id="5.1-Twitter-concerns">5.1 Twitter concerns<a class="anchor-link" href="#5.1-Twitter-concerns">¶</a></h3><p>We first examined how often each concern appears. Since a post can have several labels, the percentages need not add to 100. We count shape, eating, and weight separately here; their co-occurrence is reserved for the planned Twitter analysis.</p>
-<h4 id="Count-the-labels">Count the labels<a class="anchor-link" href="#Count-the-labels">¶</a></h4><p>For each label, we divide the number of recorded cases by the number of posts where that label applies. It skips blanks without treating them as zeros.</p>
+<h2 id="5.-Exploratory-data-analysis">5. Exploratory data analysis<a class="anchor-link" href="#5.-Exploratory-data-analysis">¶</a></h2><h3 id="5.1-Twitter-concerns">5.1 Twitter concerns<a class="anchor-link" href="#5.1-Twitter-concerns">¶</a></h3><p>We first examined how often each concern appears. Since a post can have several labels, the percentages need not add to 100. We counted shape, eating, and weight separately. Their co-occurrence is reserved for the planned Twitter analysis.</p>
+<h4 id="Count-the-labels">Count the labels<a class="anchor-link" href="#Count-the-labels">¶</a></h4><p>For each label, we divided the number of recorded cases by the number of posts where that label applies. We excluded blank entries from each denominator without treating them as zeros.</p>
 </div>
 </div>
 </div>
@@ -9376,7 +9384,7 @@ EDTT: 85 rows, 26 columns
 <div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Count posts with each label, using only posts where it applies.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We counted posts with each label, using only posts where it applies.</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">count_labels</span><span class="p">(</span><span class="n">posts</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
     <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">column</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">labels</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -9402,7 +9410,7 @@ EDTT: 85 rows, 26 columns
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Choose-the-groups">Choose the groups<a class="anchor-link" href="#Choose-the-groups">¶</a></h4><p>The main labels use all 2,584 related posts. Restraint and binge/purge use eating-concern posts; extreme thinness uses shape-concern posts with images; aversion uses the source's no-concern group. Aversion means opposition to pro-ED content, not necessarily recovery.</p>
+<h4 id="Choose-the-groups">Choose the groups<a class="anchor-link" href="#Choose-the-groups">¶</a></h4><p>The main labels use all 2,584 related posts. Restraint and binge/purge use eating-concern posts. Extreme thinness uses shape-concern posts with images. Aversion uses the source's no-concern group. Aversion means opposition to pro-ED content, not necessarily recovery.</p>
 </div>
 </div>
 </div>
@@ -9414,7 +9422,7 @@ EDTT: 85 rows, 26 columns
 <div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Count the main labels and the labels with narrower eligibility.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We counted the main labels and the labels with narrower eligibility.</span>
 <span class="n">main_concerns</span> <span class="o">=</span> <span class="n">count_labels</span><span class="p">(</span><span class="n">twitter</span><span class="p">,</span> <span class="p">{</span>
     <span class="s1">'shape'</span><span class="p">:</span> <span class="s1">'Shape concern'</span><span class="p">,</span>
     <span class="s1">'eating'</span><span class="p">:</span> <span class="s1">'Eating concern'</span><span class="p">,</span>
@@ -9596,8 +9604,8 @@ EDTT: 85 rows, 26 columns
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="5.2-TikTok-categories-and-blanks">5.2 TikTok categories and blanks<a class="anchor-link" href="#5.2-TikTok-categories-and-blanks">¶</a></h3><p>EDTT has 79 posts with EDE category text and six with blank fields. We leave those six unknown. This section answers question 1 and explains why question 3 currently has 79 usable posts.</p>
-<h4 id="Count-categories-and-missing-labels">Count categories and missing labels<a class="anchor-link" href="#Count-categories-and-missing-labels">¶</a></h4><p>For each category, we calculate the percentage among known annotations and the possible range across all 85 posts. The minimum assumes none of the six unknown posts has that category; the maximum assumes all six do.</p>
+<h3 id="5.2-TikTok-categories-and-blanks">5.2 TikTok categories and blanks<a class="anchor-link" href="#5.2-TikTok-categories-and-blanks">¶</a></h3><p>EDTT has 79 posts with EDE category text and six with blank fields. We left those six unknown. This section answers question 1 and explains why question 3 currently has 79 usable posts.</p>
+<h4 id="Count-categories-and-missing-labels">Count categories and missing labels<a class="anchor-link" href="#Count-categories-and-missing-labels">¶</a></h4><p>For each category, we calculated the percentage among known annotations and the possible range across all 85 posts. The minimum assumes none of the six unknown posts has that category. The maximum assumes all six do.</p>
 </div>
 </div>
 </div>
@@ -9609,7 +9617,7 @@ EDTT: 85 rows, 26 columns
 <div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Count EDE labels without treating missing annotations as "no."</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We counted EDE labels without treating missing annotations as "no."</span>
 <span class="n">category_counts</span> <span class="o">=</span> <span class="n">count_labels</span><span class="p">(</span><span class="n">tiktok</span><span class="p">,</span> <span class="p">{</span>
     <span class="s1">'ede_shape'</span><span class="p">:</span> <span class="s1">'Shape concern'</span><span class="p">,</span>
     <span class="s1">'ede_eating'</span><span class="p">:</span> <span class="s1">'Eating concern'</span><span class="p">,</span>
@@ -9807,7 +9815,7 @@ EDTT: 85 rows, 26 columns
 <div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Compare counts and percentages for videos and photo posts.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We compared counts and percentages for videos and photo posts.</span>
 <span class="n">video_posts</span> <span class="o">=</span> <span class="n">tiktok</span><span class="p">[</span><span class="n">tiktok</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'video'</span><span class="p">]</span>
 <span class="n">photo_posts</span> <span class="o">=</span> <span class="n">tiktok</span><span class="p">[</span><span class="n">tiktok</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'photos'</span><span class="p">]</span>
 
@@ -9958,7 +9966,7 @@ EDTT: 85 rows, 26 columns
 <div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Draw paired bars directly from the percentage columns.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We plotted paired bars directly from the percentage columns.</span>
 <span class="n">chart</span> <span class="o">=</span> <span class="n">visual_summary</span><span class="p">[[</span><span class="s1">'Videos (%)'</span><span class="p">,</span> <span class="s1">'Photo posts (%)'</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span>
     <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="n">BLUE</span><span class="p">,</span> <span class="n">ORANGE</span><span class="p">]</span>
 <span class="p">)</span>
@@ -10002,7 +10010,7 @@ EDTT: 85 rows, 26 columns
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Performance and body language appear in 37 of 47 videos (78.7%) and 11 of 38 photo posts (28.9%). Media and memes show the reverse pattern: 10 videos (21.3%) and 27 photo posts (71.1%). Both differences are about 49.8 percentage points, the largest gaps in this sample.</p>
-<p>Food imagery also appears more often in photo posts: 16 of 38 (42.1%), compared with 5 of 47 videos (10.6%). These differences describe the sampled posts; changing format would not necessarily change a post's content.</p>
+<p>Food imagery also appears more often in photo posts: 16 of 38 (42.1%), compared with 5 of 47 videos (10.6%). These differences describe the sampled posts. Changing format would not necessarily change a post's content.</p>
 </div>
 </div>
 </div>
@@ -10013,8 +10021,8 @@ EDTT: 85 rows, 26 columns
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="5.4-Audio-values">5.4 Audio values<a class="anchor-link" href="#5.4-Audio-values">¶</a></h3><p>All 85 EDTT posts have these audio measurements. Tempo is musical speed in beats per minute. Valence estimates musical positivity; arousal estimates energy. Both use a 0-to-1 scale and do not describe a person's feelings.</p>
-<h4 id="Summarize-the-values">Summarize the values<a class="anchor-link" href="#Summarize-the-values">¶</a></h4><p>The following tables summarize the average, spread, and quartiles of each audio measure. The median is the middle value; the 25th and 75th percentiles bound the middle half. We save the complete table and display it in two parts for readability.</p>
+<h3 id="5.4-Audio-values">5.4 Audio values<a class="anchor-link" href="#5.4-Audio-values">¶</a></h3><p>All 85 EDTT posts have these audio measurements. Tempo is musical speed in beats per minute. Valence estimates musical positivity. Arousal estimates energy. Both use a 0-to-1 scale and do not describe a person's feelings.</p>
+<h4 id="Summarize-the-values">Summarize the values<a class="anchor-link" href="#Summarize-the-values">¶</a></h4><p>The following tables summarize the average, spread, and quartiles of each audio measure. The median is the middle value. The 25th and 75th percentiles bound the middle half. We saved the complete table and displayed it in two parts for readability.</p>
 </div>
 </div>
 </div>
@@ -10026,7 +10034,7 @@ EDTT: 85 rows, 26 columns
 <div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Summarize audio values and give the table readable labels.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We summarized audio values and give the table readable labels.</span>
 <span class="n">audio_columns</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">'audio_tempo_bpm'</span><span class="p">,</span> <span class="s1">'audio_valence'</span><span class="p">,</span>
     <span class="s1">'audio_arousal'</span><span class="p">,</span> <span class="s1">'harmonic_ratio'</span>
@@ -10194,8 +10202,8 @@ EDTT: 85 rows, 26 columns
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Plot-the-distributions">Plot the distributions<a class="anchor-link" href="#Plot-the-distributions">¶</a></h4><p>Each histogram uses ten equal-width bins across its observed values. The line marks the median. The boxplots show the middle half and possible extreme values; a point beyond a whisker is not automatically an error. We keep all rows.</p>
-<p>Valence is the outcome for question 3. Here we examine it on its own, without separating posts by restraint status.</p>
+<h4 id="Plot-the-distributions">Plot the distributions<a class="anchor-link" href="#Plot-the-distributions">¶</a></h4><p>Each histogram uses ten equal-width bins across its observed values. The line marks the median. The boxplots show the middle half and possible extreme values. A point beyond a whisker is not automatically an error. We kept all rows.</p>
+<p>Valence is the outcome for question 3. We examined it on its own, without separating posts by restraint status.</p>
 </div>
 </div>
 </div>
@@ -10266,7 +10274,7 @@ EDTT: 85 rows, 26 columns
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Median tempo is 123.05 BPM. The middle half lies between 112.35 and 143.55 BPM; the full range is 78.30 to 172.27 BPM.</p>
+<p>Median tempo is 123.05 BPM. The middle half lies between 112.35 and 143.55 BPM. The full range is 78.30 to 172.27 BPM.</p>
 <p>Valence has a median of 0.736 and a lower mean of 0.590. The histogram shows both a higher-score group and a smaller lower-score group, so one average misses part of the distribution. The middle half spans 0.232 to 0.774.</p>
 <p>Arousal is more concentrated, with its middle half between 0.303 and 0.385. Its spread should not be compared directly with tempo's because the units differ. These plots help us describe the planned outcome without testing the hypothesis.</p>
 </div>
@@ -10279,7 +10287,7 @@ EDTT: 85 rows, 26 columns
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="5.5-What-the-EDA-tells-us">5.5 What the EDA tells us<a class="anchor-link" href="#5.5-What-the-EDA-tells-us">¶</a></h3><p>We keep the three research questions and the same rows. The figures answer different parts of question 1: label frequency, uncertainty from blank annotations, visual features by format, and audio distributions.</p>
+<h3 id="5.5-What-the-EDA-tells-us">5.5 What the EDA tells us<a class="anchor-link" href="#5.5-What-the-EDA-tells-us">¶</a></h3><p>We retained the three research questions and the same rows. The figures answer different parts of question 1: label frequency, uncertainty from blank annotations, visual features by format, and audio distributions.</p>
 <p>Shape concern is the main Twitter theme, while eating concern has a smaller but usable group. EDTT adds visual and audio measures, but only 79 posts have known EDE categories. These findings support one focused analysis per source rather than many comparisons.</p>
 <p>Questions 2 and 3 remain untested. Separate label percentages do not show whether shape and eating concerns co-occur, and the audio distributions do not show whether restraint relates to valence. Neither dataset measures algorithm exposure or changes in food attitudes.</p>
 <h2 id="6.-Questions-for-reviewers:-Part-1">6. Questions for reviewers: Part 1<a class="anchor-link" href="#6.-Questions-for-reviewers:-Part-1">¶</a></h2><p>Our discussion raised questions about conflicting labels, missing annotations, and how the two datasets fit together.</p>
@@ -10304,7 +10312,7 @@ EDTT: 85 rows, 26 columns
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="7.-Preregistration-1:-Twitter-concerns">7. Preregistration 1: Twitter concerns<a class="anchor-link" href="#7.-Preregistration-1:-Twitter-concerns">¶</a></h2><h3 id="Hypothesis">Hypothesis<a class="anchor-link" href="#Hypothesis">¶</a></h3><p>Among related Twitter posts, posts with a shape-concern label are more likely to have an eating-concern label. Body-image and food concerns may be expressed together, but this is a hypothesis about content, not a claim about illness or causation.</p>
-<h3 id="Data-and-variables">Data and variables<a class="anchor-link" href="#Data-and-variables">¶</a></h3><p>The Twitter analysis will use the 2,584 related posts. The outcome is <code>eating</code> (0 or 1); the predictor is <code>shape</code> (0 or 1). We will keep the original labels and all valid IDs. We will exclude and count any missing predictor or outcome; none are currently missing. We will keep the 11 flagged rows in the main analysis, then repeat it without them as a secondary check.</p>
+<h3 id="Data-and-variables">Data and variables<a class="anchor-link" href="#Data-and-variables">¶</a></h3><p>The Twitter analysis will use the 2,584 related posts. The outcome is <code>eating</code> (0 or 1). The predictor is <code>shape</code> (0 or 1). We will keep the original labels and all valid IDs. We will exclude and count any missing predictor or outcome. None are currently missing. We will keep the 11 flagged rows in the main analysis, then repeat it without them as a secondary check.</p>
 <h3 id="Planned-model">Planned model<a class="anchor-link" href="#Planned-model">¶</a></h3><p>We will use logistic regression because the outcome is yes/no:</p>
 <p><code>logit[P(eating = 1)] = beta_0 + beta_1 * shape</code></p>
 <p>We expect <code>beta_1 &gt; 0</code>. We will test <code>beta_1 = 0</code> with a two-sided coefficient test. We will report the odds ratio <code>exp(beta_1)</code>, its 95% confidence interval, and the predicted probability for each shape group. We will also report the probability difference so the result is understandable without interpreting odds. Each observation in the model represents one post.</p>
@@ -10322,13 +10330,13 @@ EDTT: 85 rows, 26 columns
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="8.-Preregistration-2:-Restraint-and-audio">8. Preregistration 2: Restraint and audio<a class="anchor-link" href="#8.-Preregistration-2:-Restraint-and-audio">¶</a></h2><h3 id="Hypothesis">Hypothesis<a class="anchor-link" href="#Hypothesis">¶</a></h3><p>EDTT posts with a recorded restraint label have lower average audio valence than posts without that label, after accounting for format. This asks whether food-restriction content has a different musical tone. The direction is uncertain: upbeat or ironic music could produce the opposite result.</p>
-<h3 id="Data-and-variables">Data and variables<a class="anchor-link" href="#Data-and-variables">¶</a></h3><p>We will use posts with nonblank EDE text and valid audio valence and format, currently 79 rows. The outcome is <code>audio_valence</code> on its 0-to-1 scale. The predictor <code>ede_restraint</code> is 1 when the Restraint header is recorded and 0 when nonblank text lacks it. We will code <code>photos = 1</code> for photo slideshows and 0 for videos. We will exclude the six unknown EDE rows from the primary model; do not treat blanks as confirmed absence.</p>
+<h3 id="Data-and-variables">Data and variables<a class="anchor-link" href="#Data-and-variables">¶</a></h3><p>We will use posts with nonblank EDE text and valid audio valence and format, currently 79 rows. The outcome is <code>audio_valence</code> on its 0-to-1 scale. The predictor <code>ede_restraint</code> is 1 when the Restraint header is recorded and 0 when nonblank text lacks it. We will code <code>photos = 1</code> for photo slideshows and 0 for videos. We will exclude the six unknown EDE rows from the primary model. Do not treat blanks as confirmed absence.</p>
 <h3 id="Planned-model">Planned model<a class="anchor-link" href="#Planned-model">¶</a></h3><p>We will use linear regression with format included:</p>
 <p><code>audio_valence = beta_0 + beta_1 * ede_restraint + beta_2 * photos + error</code></p>
 <p>We expect <code>beta_1 &lt; 0</code>. It represents the mean valence difference between restraint groups at the same format. We will compare predicted valence for restraint = 0 and restraint = 1 within each format. The comparison will hold format constant while varying restraint status.</p>
-<h3 id="Checks-and-reporting">Checks and reporting<a class="anchor-link" href="#Checks-and-reporting">¶</a></h3><p>We will fit the model with statsmodels, using HC3 robust standard errors and t-based inference (<code>use_t=True</code>). Report the coefficient, 95% interval, two-sided p-value, group sizes, R-squared, and predictions by restraint and format. Inspect residuals and influential rows; flag Cook's distance above <code>4/n</code> but keep these rows in the main model. Report predictions outside 0 to 1. If predictors have no variation or cannot be separated, report that the model cannot estimate the requested effect.</p>
+<h3 id="Checks-and-reporting">Checks and reporting<a class="anchor-link" href="#Checks-and-reporting">¶</a></h3><p>We will fit the model with statsmodels, using HC3 robust standard errors and t-based inference (<code>use_t=True</code>). Report the coefficient, 95% interval, two-sided p-value, group sizes, R-squared, and predictions by restraint and format. Inspect residuals and influential rows. Flag Cook's distance above <code>4/n</code> but keep these rows in the main model. Report predictions outside 0 to 1. If predictors have no variation or cannot be separated, report that the model cannot estimate the requested effect.</p>
 <p>As secondary missing-data checks, repeat the model twice: assign all six unknown restraint labels to 0, then to 1. Report both estimates as scenarios, not proven bounds or replacements for the primary model. Do not remove outliers or change predictors after seeing which result is significant.</p>
-<h3 id="Limits">Limits<a class="anchor-link" href="#Limits">¶</a></h3><p>Format is available and relevant to how posts combine images and sound; it does not account for every possible confounder. Account type, post length, and reliable creator identifiers are unavailable. The primary analysis includes only 79 posts, which limits precision. Robust standard errors address unequal residual variance, not selection bias or repeated audio. Musical valence is not a measure of a viewer's emotions or health.</p>
+<h3 id="Limits">Limits<a class="anchor-link" href="#Limits">¶</a></h3><p>Format is available and relevant to how posts combine images and sound. It does not account for every possible confounder. Account type, post length, and reliable creator identifiers are unavailable. The primary analysis includes only 79 posts, which limits precision. Robust standard errors address unequal residual variance, not selection bias or repeated audio. Musical valence is not a measure of a viewer's emotions or health.</p>
 </div>
 </div>
 </div>
@@ -10342,7 +10350,7 @@ EDTT: 85 rows, 26 columns
 <h2 id="Appendix-A.-Data-cleaning-appendix-and-reproducibility">Appendix A. Data cleaning appendix and reproducibility<a class="anchor-link" href="#Appendix-A.-Data-cleaning-appendix-and-reproducibility">¶</a></h2><p><strong>Files.</strong> data/raw/ contains unchanged source downloads and the checksum manifest. <code>data/intermediate/</code> contains validated/normalized snapshots. <code>data/processed/</code> contains analysis tables and audits. <code>figures/</code> contains the four charts. The download bundle includes these files, the executed notebook, its HTML view, and the combined PDF. In GitHub, the notebook is in notebooks/ and the report is in <code>reports/phase2/</code>.</p>
 <p><strong>Re-run.</strong> Extract the full ZIP, install the packages in <code>requirements.txt</code> in a Python environment, open this notebook from the extracted directory, select that environment's kernel, and choose Restart Kernel and Run All. A complete local bundle runs offline. A notebook opened alone in Colab needs internet access on its first run to restore the saved inputs from GitHub. Processed files and figures are overwritten reproducibly. All code cells should finish without errors. No proposed inferential analyses are implemented here.</p>
 <p><strong>Hosted raw inputs.</strong> The <a href="https://github.com/AnyaChoudhary/info2950-fall2026-project/tree/905e574351e821300dc5b199747216a3bd630e1b/data/raw">verified GitHub raw-data folder</a> contains both original datasets, the Twitter codebook and filtering appendix, and <code>manifest.json</code>. These are the exact bytes used in this execution. The publisher links in Section 2 provide independent access to the original releases.</p>
-<p><strong>Cleaning trace.</strong> Section 2.2 verifies the four original files; Section 2.3 validates Twitter codes and their conditional universes, saves all 3,000 rows, retains 2,584 related posts, and flags 11 logical inconsistencies; Section 2.4 normalizes all 85 EDTT rows and derives 11 category indicators plus a count while preserving six unknown EDE annotations; Section 2.5 saves row-flow and eligibility audits. Sections 5.1–5.4 generate the displayed summaries and figures from those analysis-ready files. Every code cell has an executed output or visible saved-file result, and the proposed inference remains unperformed.</p>
+<p><strong>Cleaning trace.</strong> The initial checks verified the four original files. Section 2.2 validated Twitter codes and their conditional universes, saves all 3,000 rows, retains 2,584 related posts, and flags 11 logical inconsistencies; Section 2.3 normalized all 85 EDTT rows and derives 11 category indicators plus a count while preserving six unknown EDE annotations; Section 2.4 saved row-flow and eligibility audits. Sections 5.1–5.4 generate the displayed summaries and figures from those analysis-ready files. Every code cell has an executed output or visible saved-file result, and the proposed inference remains unperformed.</p>
 <h2 id="Appendix-B.-References">Appendix B. References<a class="anchor-link" href="#Appendix-B.-References">¶</a></h2><ol>
 <li>Cavazos-Rehg, P. A., et al. (2019). “I just want to be skinny.”: A content analysis of tweets expressing eating disorder symptoms. <em>PLOS ONE</em>, 14(1), e0207506. <a href="https://doi.org/10.1371/journal.pone.0207506">https://doi.org/10.1371/journal.pone.0207506</a>. S1 Dataset, S1 Codebook, and S1 Appendix are bundled unchanged.</li>
 <li>Shaveet, E., Viranda, T., &amp; Choudhury, T. (2026). <em>EDTT Dataset</em>, version 2. Zenodo. <a href="https://doi.org/10.5281/zenodo.19749827">https://doi.org/10.5281/zenodo.19749827</a>. Public dictionary: <a href="https://edenshaveet.github.io/EDTT/">https://edenshaveet.github.io/EDTT/</a>.</li>
