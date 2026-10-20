@@ -14,4 +14,4 @@ Sources: [Cavazos-Rehg et al., PLOS ONE](https://doi.org/10.1371/journal.pone.02
 
 The Twitter ID is synthetic. EDTT withholds original post identifiers and private transcripts. Public summaries and annotations are still sensitive research material; the report presents aggregates rather than reproducing post summaries.
 
-The notebook checks these files against the manifest before analysis. This README is documentation and is not itself a source-data file in the manifest.
+The manifest preserves the original source links and recorded file hashes for reference. This README is documentation and is not itself a source-data file in the manifest.
