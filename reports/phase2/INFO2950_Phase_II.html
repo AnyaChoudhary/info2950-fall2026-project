@@ -7843,7 +7843,7 @@ a.anchor-link {
 <li>Among Twitter posts about eating disorders or body image, are shape-concern and eating-concern labels associated?</li>
 <li>In EDTT, is a restraint label associated with audio valence after accounting for whether the post is a video or photo slideshow?</li>
 </ol>
-<p>Phase II explores question 1. Questions 2 and 3 are planned for the final report and have not been tested. The files describe posts, so they cannot show algorithm effects, engagement effects, diagnoses, or changes in a person's relationship with food. Recovery and social comparison are not measured consistently enough to use as shared outcomes.</p>
+<p>The exploratory analysis addressed question 1. Questions 2 and 3 are planned for the final report and have not been tested. The files describe posts, so they cannot show algorithm effects, engagement effects, diagnoses, or changes in a person's relationship with food. Recovery and social comparison are not measured consistently enough to use as shared outcomes.</p>
 <p>Twitter provides a larger sample of coded posts; EDTT provides a smaller sample with visual and audio features. We analyzed them separately because their collection methods and labels differ.</p>
 </div>
 </div>
@@ -8117,7 +8117,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="2.2-Twitter-cleaning">2.2 Twitter cleaning<a class="anchor-link" href="#2.2-Twitter-cleaning">¶</a></h3><p><code>shape</code> is a content label for concern about body shape or appearance, such as a focus on thinness or specific body areas. It is different from a table's <code>.shape</code>, which reports its number of rows and columns. The content label does not diagnose a person.</p>
-<p>We kept all original columns so each result can be traced to the source. The cleaned analysis file includes only posts coded as related to eating disorders or body image (<code>ed_about = 1</code>). The intermediate file keeps all 3,000 source rows.</p>
+<p>We kept all original columns so each result can be traced to the source. The cleaned analysis file includes only posts coded as related to eating disorders or body image (<code>ed_about = 1</code>). We kept all 3,000 source rows in the intermediate file.</p>
 </div>
 </div>
 </div>
@@ -8163,7 +8163,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="Check-when-each-label-applies">Check when each label applies<a class="anchor-link" href="#Check-when-each-label-applies">¶</a></h4><p>Image labels apply to shape-concern posts. Body-image details apply only when those posts have an image. Restraint and binge/purge labels apply only to eating-concern posts. Aversion follows the source's <code>noconcern</code> rule.</p>
-<p>The checks below confirm that labels are present where required and blank where the codebook skips them. These skipped entries stay blank instead of becoming zeros.</p>
+<p>Below, we checked that labels were present where required and blank where the codebook skipped them. We kept these skipped entries blank rather than changing them to zeros.</p>
 </div>
 </div>
 </div>
@@ -8464,7 +8464,7 @@ Retained related posts: 2584 | Excluded unrelated/unknown: 416
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="2.3-TikTok-cleaning">2.3 TikTok cleaning<a class="anchor-link" href="#2.3-TikTok-cleaning">¶</a></h3><p>The public EDTT data do not include post IDs. We assigned <code>record_id</code> from the original row order solely to track this file. We checked exact duplicates but did not infer duplicate posts from similar summaries or shared audio.</p>
 <p>We standardized column names, trimmed surrounding whitespace, preserved annotation wording, checked numeric ranges and post format, and derived indicators from explicit category headers. Header matching is case-insensitive and allows a header after either a semicolon or a colon. This accommodates an observed separator inconsistency in the visual annotations. We left item-level spelling unchanged and did not reinterpret the annotation text.</p>
-<p>A blank EDE subscale field remains unknown for all four derived EDE indicators. It is not recoded to four zeros. A zero on a nonblank field means the category was not recorded there, not that a clinical symptom is absent. Blank diagnostic fields are also preserved. Their meaning is not resolved by the inspected dictionary. Numeric audio labels are checked against the dictionary's thresholds, and disagreements are reported rather than overwritten.</p>
+<p>A blank EDE subscale field remains unknown for all four derived EDE indicators. It is not recoded to four zeros. A zero on a nonblank field means the category was not recorded there, not that a clinical symptom is absent. We also preserved blank diagnostic fields because the dictionary did not explain their meaning. We checked the audio labels against the dictionary's thresholds and reported disagreements without changing the original values.</p>
 </div>
 </div>
 </div>
@@ -8541,7 +8541,7 @@ Retained related posts: 2584 | Excluded unrelated/unknown: 416
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Turn-category-headers-into-labels">Turn category headers into labels<a class="anchor-link" href="#Turn-category-headers-into-labels">¶</a></h4><p>Below, we extracted four EDE labels and seven visual labels from the headings in the original annotations. A recorded header becomes 1. An unrecorded header in nonblank text becomes 0. Blank EDE text stays unknown in all four labels. Header matching handles the separator variations found in the source without rewriting the annotation text.</p>
+<h4 id="Turn-category-headers-into-labels">Turn category headers into labels<a class="anchor-link" href="#Turn-category-headers-into-labels">¶</a></h4><p>Below, we extracted four EDE labels and seven visual labels from the headings in the original annotations. We coded a recorded header as 1 and an absent header in nonblank text as 0. We kept blank EDE text unknown in all four labels. Header matching handles the separator variations found in the source without rewriting the annotation text.</p>
 </div>
 </div>
 </div>
@@ -8587,7 +8587,7 @@ Retained related posts: 2584 | Excluded unrelated/unknown: 416
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Check-audio-labels-and-save">Check audio labels and save<a class="anchor-link" href="#Check-audio-labels-and-save">¶</a></h4><p>Below, we compared the low, medium, and high audio labels with the published thresholds. Any disagreement is reported without changing the source label. All 85 posts remain in the saved data.</p>
+<h4 id="Check-audio-labels-and-save">Check audio labels and save<a class="anchor-link" href="#Check-audio-labels-and-save">¶</a></h4><p>Below, we compared the low, medium, and high audio labels with the published thresholds. We reported any disagreement without changing the source label and kept all 85 posts in the saved data.</p>
 </div>
 </div>
 </div>
@@ -10299,8 +10299,9 @@ EDTT: 85 rows, 26 columns
 </ol>
 <h2 id="Part-2.-Preregistration-of-future-analyses">Part 2. Preregistration of future analyses<a class="anchor-link" href="#Part-2.-Preregistration-of-future-analyses">¶</a></h2><h3 id="What-has-been-viewed">What has been viewed<a class="anchor-link" href="#What-has-been-viewed">¶</a></h3><p>These plans follow the data audit and EDA, not an untouched dataset. We inspected source documentation, examples, the Twitter consistency check, individual-variable summaries, and visual features by format. We have not tabulated, correlated, or modeled the two planned predictor-outcome pairs.</p>
 <p>These plans were clarified on October 19 before either model was fitted. We will retain this dated version and document any later changes.</p>
-<h3 id="Reporting-plan">Reporting plan<a class="anchor-link" href="#Reporting-plan">¶</a></h3><p>We will report both analyses regardless of their direction or statistical significance, including counts, effect sizes, 95% confidence intervals, diagnostics, and limitations. We will use two-sided tests. We will apply Holm correction at 0.05 to the two primary p-values and report both original and adjusted values. The direction of each estimate determines whether it agrees with the hypothesis.</p>
-<p>Both models use individual posts as observations. Sample size affects precision, but it does not remove selection bias, confounding, or dependence between posts.</p>
+<h3 id="Reporting-plan">Reporting plan<a class="anchor-link" href="#Reporting-plan">¶</a></h3><p>We will report both analyses whether or not their results support the hypotheses. Each report will include the posts used, model coefficients, predicted values, and limitations. We will compare the direction and size of each relationship rather than treating a coefficient alone as proof of a hypothesis.</p>
+<p>On October 20, before fitting either model, we simplified these plans to focus on regression coefficients and predictions. The hypotheses and variables remained unchanged. Formal significance tests are not part of this version of the plan. Any later addition will be documented before it is run.</p>
+<p>Both models will use individual posts as observations. Sample size affects precision, but it does not remove selection bias, confounding, or dependence between posts.</p>
 </div>
 </div>
 </div>
@@ -10311,14 +10312,14 @@ EDTT: 85 rows, 26 columns
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="7.-Preregistration-1:-Twitter-concerns">7. Preregistration 1: Twitter concerns<a class="anchor-link" href="#7.-Preregistration-1:-Twitter-concerns">¶</a></h2><h3 id="Hypothesis">Hypothesis<a class="anchor-link" href="#Hypothesis">¶</a></h3><p>Among related Twitter posts, posts with a shape-concern label are more likely to have an eating-concern label. Body-image and food concerns may be expressed together, but this is a hypothesis about content, not a claim about illness or causation.</p>
-<h3 id="Data-and-variables">Data and variables<a class="anchor-link" href="#Data-and-variables">¶</a></h3><p>The Twitter analysis will use the 2,584 related posts. The outcome is <code>eating</code> (0 or 1). The predictor is <code>shape</code> (0 or 1). We will keep the original labels and all valid IDs. We will exclude and count any missing predictor or outcome. None are currently missing. We will keep the 11 flagged rows in the main analysis, then repeat it without them as a secondary check.</p>
-<h3 id="Planned-model">Planned model<a class="anchor-link" href="#Planned-model">¶</a></h3><p>We will use logistic regression because the outcome is yes/no:</p>
+<h2 id="7.-Preregistration-1:-Twitter-concerns">7. Preregistration 1: Twitter concerns<a class="anchor-link" href="#7.-Preregistration-1:-Twitter-concerns">¶</a></h2><h3 id="Hypothesis">Hypothesis<a class="anchor-link" href="#Hypothesis">¶</a></h3><p>Among related Twitter posts, posts with a shape-concern label are more likely to have an eating-concern label. Body-image and food concerns may appear together, but this is a hypothesis about content rather than illness or causation.</p>
+<h3 id="Data-and-variables">Data and variables<a class="anchor-link" href="#Data-and-variables">¶</a></h3><p>We will use the 2,584 related Twitter posts. The outcome will be <code>eating</code> (0 or 1), and the predictor will be <code>shape</code> (0 or 1). We will retain the original labels and exclude any row missing either variable. The cleaning checks found no such missing values.</p>
+<h3 id="Planned-analysis">Planned analysis<a class="anchor-link" href="#Planned-analysis">¶</a></h3><p>We will first count posts with and without eating concern in each shape-concern group and calculate the corresponding percentages. We will then fit a logistic regression using <code>LogisticRegression</code>:</p>
 <p><code>logit[P(eating = 1)] = beta_0 + beta_1 * shape</code></p>
-<p>We expect <code>beta_1 &gt; 0</code>. We will test <code>beta_1 = 0</code> with a two-sided coefficient test. We will report the odds ratio <code>exp(beta_1)</code>, its 95% confidence interval, and the predicted probability for each shape group. We will also report the probability difference so the result is understandable without interpreting odds. Each observation in the model represents one post.</p>
-<h3 id="Checks-and-reporting">Checks and reporting<a class="anchor-link" href="#Checks-and-reporting">¶</a></h3><p>In the final phase, we will show the 2-by-2 counts and fit the model with statsmodels. Flag cells with fewer than five posts. If a cell is zero or the model fails because of separation, use a two-sided Fisher exact test and an exact odds-ratio interval instead. If either variable has no variation, report that the association cannot be estimated. Report any fallback and the secondary analysis excluding flagged rows.</p>
-<p>Logistic regression allows us to compare the probability of an eating-concern label between the two shape-concern groups.</p>
-<h3 id="Limits">Limits<a class="anchor-link" href="#Limits">¶</a></h3><p>The relationship may reflect shared coding practices or repeated creators. Account type and post length are unavailable; <code>noconcern</code> is determined by the concern labels and should not be used as a control. Without creator IDs, uncertainty estimates may be too narrow. We will describe an association in this sample, not a causal or population-wide effect.</p>
+<p>We will report the intercept and shape coefficient, then calculate the predicted probability of eating concern for <code>shape = 0</code> and <code>shape = 1</code>. A positive coefficient and a higher predicted probability for the shape-concern group would agree with the hypothesis. A zero or negative difference would not support its expected direction.</p>
+<p>We will use the model's default regularization settings and record the library version and settings in the final report. The fitted probabilities may therefore differ slightly from the observed group percentages. We will show both, without treating the model's predictions as a significance test.</p>
+<h3 id="Checks-and-reporting">Checks and reporting<a class="anchor-link" href="#Checks-and-reporting">¶</a></h3><p>We will include both group sizes and all four combinations of the labels, so small groups are visible. The main analysis will keep the 11 flagged records. We will repeat the same comparison without those records and report whether the result changes. If a variable has no variation or fitting fails, we will report that limitation instead of changing the hypothesis.</p>
+<h3 id="Limits">Limits<a class="anchor-link" href="#Limits">¶</a></h3><p>The relationship may reflect coding practices or repeated creators. Account type and post length were unavailable. We will not use <code>noconcern</code> as a control because it is defined from the concern labels themselves. The results will describe this sample and will not establish a causal effect or a relationship across all Twitter posts.</p>
 </div>
 </div>
 </div>
@@ -10329,14 +10330,15 @@ EDTT: 85 rows, 26 columns
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="8.-Preregistration-2:-Restraint-and-audio">8. Preregistration 2: Restraint and audio<a class="anchor-link" href="#8.-Preregistration-2:-Restraint-and-audio">¶</a></h2><h3 id="Hypothesis">Hypothesis<a class="anchor-link" href="#Hypothesis">¶</a></h3><p>EDTT posts with a recorded restraint label have lower average audio valence than posts without that label, after accounting for format. This asks whether food-restriction content has a different musical tone. The direction is uncertain: upbeat or ironic music could produce the opposite result.</p>
-<h3 id="Data-and-variables">Data and variables<a class="anchor-link" href="#Data-and-variables">¶</a></h3><p>We will use posts with nonblank EDE text and valid audio valence and format, currently 79 rows. The outcome is <code>audio_valence</code> on its 0-to-1 scale. The predictor <code>ede_restraint</code> is 1 when the Restraint header is recorded and 0 when nonblank text lacks it. We will code <code>photos = 1</code> for photo slideshows and 0 for videos. We will exclude the six unknown EDE rows from the primary model. Do not treat blanks as confirmed absence.</p>
-<h3 id="Planned-model">Planned model<a class="anchor-link" href="#Planned-model">¶</a></h3><p>We will use linear regression with format included:</p>
+<h2 id="8.-Preregistration-2:-Restraint-and-audio">8. Preregistration 2: Restraint and audio<a class="anchor-link" href="#8.-Preregistration-2:-Restraint-and-audio">¶</a></h2><h3 id="Hypothesis">Hypothesis<a class="anchor-link" href="#Hypothesis">¶</a></h3><p>EDTT posts with a recorded restraint label have lower average audio valence than posts without that label, after accounting for format. This asks whether food-restriction content has a different musical tone. Upbeat or ironic music could produce the opposite result.</p>
+<h3 id="Data-and-variables">Data and variables<a class="anchor-link" href="#Data-and-variables">¶</a></h3><p>We will use the 79 posts with nonblank EDE text and valid audio valence and format. The outcome will be <code>audio_valence</code> on its 0-to-1 scale. The predictors will be <code>ede_restraint</code> and a binary format variable, coded as 1 for photos and 0 for videos. The six posts with unknown EDE categories will remain excluded from the primary analysis.</p>
+<h3 id="Planned-analysis">Planned analysis<a class="anchor-link" href="#Planned-analysis">¶</a></h3><p>We will fit a multiple linear regression using <code>LinearRegression</code>:</p>
 <p><code>audio_valence = beta_0 + beta_1 * ede_restraint + beta_2 * photos + error</code></p>
-<p>We expect <code>beta_1 &lt; 0</code>. It represents the mean valence difference between restraint groups at the same format. We will compare predicted valence for restraint = 0 and restraint = 1 within each format. The comparison will hold format constant while varying restraint status.</p>
-<h3 id="Checks-and-reporting">Checks and reporting<a class="anchor-link" href="#Checks-and-reporting">¶</a></h3><p>We will fit the model with statsmodels, using HC3 robust standard errors and t-based inference (<code>use_t=True</code>). Report the coefficient, 95% interval, two-sided p-value, group sizes, R-squared, and predictions by restraint and format. Inspect residuals and influential rows. Flag Cook's distance above <code>4/n</code> but keep these rows in the main model. Report predictions outside 0 to 1. If predictors have no variation or cannot be separated, report that the model cannot estimate the requested effect.</p>
-<p>As secondary missing-data checks, repeat the model twice: assign all six unknown restraint labels to 0, then to 1. Report both estimates as scenarios, not proven bounds or replacements for the primary model. Do not remove outliers or change predictors after seeing which result is significant.</p>
-<h3 id="Limits">Limits<a class="anchor-link" href="#Limits">¶</a></h3><p>Format is available and relevant to how posts combine images and sound. It does not account for every possible confounder. Account type, post length, and reliable creator identifiers are unavailable. The primary analysis includes only 79 posts, which limits precision. Robust standard errors address unequal residual variance, not selection bias or repeated audio. Musical valence is not a measure of a viewer's emotions or health.</p>
+<p>We will report the intercept and both coefficients. Within each format, we will compare predicted valence for restraint = 0 and restraint = 1. A negative restraint coefficient would agree with the hypothesis because it represents lower predicted valence at the same format. A zero or positive coefficient would not support its expected direction.</p>
+<p>We will also report the observed group sizes and mean valence values. These will provide context for the model's predictions, especially if some combinations of restraint and format contain few posts.</p>
+<h3 id="Checks-and-reporting">Checks and reporting<a class="anchor-link" href="#Checks-and-reporting">¶</a></h3><p>We will compare observed and predicted values, inspect the residuals, and calculate mean squared error to summarize how closely the model fits these posts. This will describe fit to the sample, not performance on new posts. We will report any predictions outside 0 to 1 and keep all eligible rows rather than removing posts to improve the result.</p>
+<p>If either predictor has no variation or the two predictors cannot be distinguished, we will report that the planned comparison could not be estimated reliably. As a separate missing-data check, we will repeat the model with all six unknown restraint labels set to 0, then with all six set to 1. These will be hypothetical scenarios, not corrections to the original labels or guaranteed bounds on the effect.</p>
+<h3 id="Limits">Limits<a class="anchor-link" href="#Limits">¶</a></h3><p>Format will account for one observed difference between posts, but it will not control for every possible confounder. Account type, post length, and reliable creator identifiers were unavailable. The small sample and possible reuse of audio will limit interpretation. Musical valence will not be treated as a measure of viewers' emotions or health.</p>
 </div>
 </div>
 </div>
@@ -10366,15 +10368,15 @@ EDTT: 85 rows, 26 columns
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="9.-Questions-for-reviewers:-Part-2">9. Questions for reviewers: Part 2<a class="anchor-link" href="#9.-Questions-for-reviewers:-Part-2">¶</a></h2><p>We would like feedback on the models, the limits of the available variables, and how clearly the planned analyses are described.</p>
+<h2 id="9.-Questions-for-reviewers:-Part-2">9. Questions for reviewers: Part 2<a class="anchor-link" href="#9.-Questions-for-reviewers:-Part-2">¶</a></h2><p>We would like feedback on whether the models match our questions and how to interpret their results within the limits of these samples.</p>
 <ol>
-<li>Is logistic regression the right choice for Twitter's binary outcome, and is the proposed fallback appropriate when some groups contain very few posts?</li>
-<li>Is a linear model with format appropriate for EDTT valence, given the bounded scale and 79 usable posts? Are the planned robust intervals and residual checks sufficient?</li>
-<li>With account type, post length, and creator IDs unavailable, should we narrow the interpretation further or seek additional data before modeling? We recognize that more posts alone would not remove these biases.</li>
-<li>Are the two extreme assignments for the six unknown restraint labels useful sensitivity checks, or should source-author clarification take priority?</li>
-<li>Are equations, variable definitions, and plain-language descriptions sufficient for the final report, or would you like additional mathematical notation?</li>
+<li>Will the observed group percentages and logistic regression probabilities provide a clear comparison of eating concern across Twitter shape-concern groups?</li>
+<li>Is multiple linear regression appropriate for EDTT valence after accounting for format, given its 0-to-1 scale and only 79 usable posts?</li>
+<li>With account type, post length, and creator IDs unavailable, should we narrow the interpretation further or seek additional data before modeling?</li>
+<li>Are the two assignments for the six unknown restraint labels useful checks, or should we first ask the source authors to clarify those blanks?</li>
+<li>Are coefficients, predicted values, and fit summaries sufficient for the final report, or should we preregister an additional uncertainty analysis before fitting the models?</li>
 </ol>
-<p>Both planned analyses will be reported even if they do not support the hypotheses.</p>
+<p>Both planned analyses will be reported even if their results do not support the hypotheses.</p>
 </div>
 </div>
 </div>
