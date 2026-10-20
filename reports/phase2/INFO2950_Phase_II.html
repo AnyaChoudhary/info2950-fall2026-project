@@ -7878,9 +7878,9 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="2.-Data-collection-and-cleaning">2. Data collection and cleaning<a class="anchor-link" href="#2.-Data-collection-and-cleaning">¶</a></h2><h3 id="2.1-Data-sources">2.1 Data sources<a class="anchor-link" href="#2.1-Data-sources">¶</a></h3><p>The source files were downloaded on October 15, 2026. Downloads occurred outside the notebook, as the rubric requests collection descriptions but no collection code. Original bytes are retained under data/raw/; the manifest records URLs and SHA-256 checksums. The same unchanged files are hosted in the <a href="https://github.com/AnyaChoudhary/info2950-fall2026-project/tree/905e574351e821300dc5b199747216a3bd630e1b/data/raw">project GitHub raw-data folder</a>, pinned to the verified upload commit so reviewers can retrieve the exact inputs.</p>
+<h2 id="2.-Data-collection-and-cleaning">2. Data collection and cleaning<a class="anchor-link" href="#2.-Data-collection-and-cleaning">¶</a></h2><h3 id="2.1-Data-sources">2.1 Data sources<a class="anchor-link" href="#2.1-Data-sources">¶</a></h3><p>The source files were downloaded on October 15, 2026. We kept the original files in data/raw/ and recorded their source links and checksums so the analysis can be reproduced. The same unchanged files are hosted in the <a href="https://github.com/AnyaChoudhary/info2950-fall2026-project/tree/905e574351e821300dc5b199747216a3bd630e1b/data/raw">project GitHub raw-data folder</a>, pinned to the verified upload commit so reviewers can retrieve the exact inputs.</p>
 <p>Twitter: Cavazos-Rehg et al. (2019), <a href="https://doi.org/10.1371/journal.pone.0207506">PLOS ONE article</a>, <a href="https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0207506.s002&amp;type=supplementary">S1 Dataset</a>, and <a href="https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0207506.s003&amp;type=supplementary">S1 Codebook</a>. The study sampled 3,000 English-language posts from a keyword-selected January 2015 corpus. The release supplies de-identified codes. The original post text is not included. The published methods describe trained coders and adjudication.</p>
-<p>TikTok: Shaveet, Viranda, and Choudhury (2026), <a href="https://doi.org/10.5281/zenodo.19749827">EDTT v2</a>, <a href="https://zenodo.org/records/19749827/files/EDTT_public.csv?download=1">public CSV</a>, and <a href="https://edenshaveet.github.io/EDTT/">data dictionary</a>. This is a curated, expert-annotated pro-ED content sample assembled through text retrieval and recommendation surfacing. Private post identifiers and transcripts are withheld. The record was published in April 2026; the proposed 2024–2025 collection window was not verified in the public documentation inspected and is not assumed here.</p>
+<p>TikTok: Shaveet, Viranda, and Choudhury (2026), <a href="https://doi.org/10.5281/zenodo.19749827">EDTT v2</a>, <a href="https://zenodo.org/records/19749827/files/EDTT_public.csv?download=1">public data</a>, and <a href="https://edenshaveet.github.io/EDTT/">data dictionary</a>. This is a curated, expert-annotated pro-ED content sample assembled through text retrieval and recommendation surfacing. Private post identifiers and transcripts are withheld. The record was published in April 2026; the proposed 2024–2025 collection window was not verified in the public documentation inspected and is not assumed here.</p>
 <p>Project files, cleaning outputs, and documentation are available in the <a href="https://github.com/AnyaChoudhary/info2950-fall2026-project">GitHub repository</a>.</p>
 <p>No scraping, individual contact, account identification, or new annotation was performed. No API credentials were required.</p>
 <h3 id="2.2-Setup">2.2 Setup<a class="anchor-link" href="#2.2-Setup">¶</a></h3><p>Run this notebook with the included data/ directory. It locates the project root automatically when opened from the repository's notebooks/ folder or the extracted bundle. In Colab, if the files are absent, the next cell restores the exact saved inputs from the pinned GitHub snapshot. It then checks file integrity and configures consistent figures. This restores existing project files; the original data collection from publishers occurred separately. A changed raw file fails explicitly rather than silently changing the results.</p>
@@ -7894,7 +7894,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Imports">Imports<a class="anchor-link" href="#Imports">¶</a></h4><p>Load the libraries once at the beginning. Pandas handles the tables; matplotlib handles the charts. The file and checksum tools let the same notebook run locally or in Colab.</p>
+<h4 id="Imports">Imports<a class="anchor-link" href="#Imports">¶</a></h4><p>The analysis uses pandas to organize the data and matplotlib to produce the charts. The remaining tools locate the saved files and check that they have not changed.</p>
 </div>
 </div>
 </div>
@@ -7934,7 +7934,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Find-the-data">Find the data<a class="anchor-link" href="#Find-the-data">¶</a></h4><p>Use the supplied data folder when it is available. Otherwise, restore the saved project inputs from GitHub and check their hashes. This setup restores the existing files; it does not collect new posts.</p>
+<h4 id="Find-the-data">Find the data<a class="anchor-link" href="#Find-the-data">¶</a></h4><p>The notebook uses the supplied data folder or retrieves the same saved files from GitHub when they are missing. This allows the analysis to run in Colab without collecting new posts.</p>
 </div>
 </div>
 </div>
@@ -7996,7 +7996,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Check-the-files">Check the files<a class="anchor-link" href="#Check-the-files">¶</a></h4><p>Compare each raw file with its saved checksum before cleaning. A mismatch stops the notebook so changed input files cannot silently change the results.</p>
+<h4 id="Check-the-files">Check the files<a class="anchor-link" href="#Check-the-files">¶</a></h4><p>Before cleaning, we check each source file against its saved checksum. The notebook stops if a file has changed.</p>
 </div>
 </div>
 </div>
@@ -8041,7 +8041,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Chart-settings">Chart settings<a class="anchor-link" href="#Chart-settings">¶</a></h4><p>Set the font and colors used by the existing charts. The helper saves each chart before displaying it.</p>
+<h4 id="Chart-settings">Chart settings<a class="anchor-link" href="#Chart-settings">¶</a></h4><p>The charts use a consistent font and color scheme. Each figure is saved alongside the data.</p>
 </div>
 </div>
 </div>
@@ -8107,7 +8107,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Read-and-check-codes">Read and check codes<a class="anchor-link" href="#Read-and-check-codes">¶</a></h4><p>Read the CSV, standardize column names, and check IDs and allowed values. Nullable integers preserve blanks. Most annotation codes are 0 or 1; <code>ed_about</code> also allows 9 for unknown, and <code>id</code> is a row identifier.</p>
+<h4 id="Read-and-check-codes">Read and check codes<a class="anchor-link" href="#Read-and-check-codes">¶</a></h4><p>We read the source data, standardized the column names, and checked the IDs and recorded values. Blank entries remain blank. Most annotation codes are 0 or 1; <code>ed_about</code> also allows 9 for unknown, and <code>id</code> is a row identifier.</p>
 </div>
 </div>
 </div>
@@ -8119,8 +8119,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># CSV import: Lecture 2.</span>
-<span class="c1"># Validate every Twitter code and its conditional eligibility before filtering.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Check that the labels follow the source definitions.</span>
 <span class="n">tw_raw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">RAW</span> <span class="o">/</span> <span class="s1">'twitter_s1.csv'</span><span class="p">)</span>
 <span class="n">tw</span> <span class="o">=</span> <span class="n">tw_raw</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">tw</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">tw</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
@@ -8337,7 +8336,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Keep-related-posts-and-flag-conflicts">Keep related posts and flag conflicts<a class="anchor-link" href="#Keep-related-posts-and-flag-conflicts">¶</a></h4><p>Keep <code>ed_about = 1</code> rows for analysis. Eleven source rows say <code>noconcern = 0</code> even though shape, eating, and weight are all zero. We flag them and preserve their original labels because the released data cannot tell us which label is wrong. Repeated code patterns are not removed: different posts can share the same labels.</p>
+<h4 id="Keep-related-posts-and-flag-conflicts">Keep related posts and flag conflicts<a class="anchor-link" href="#Keep-related-posts-and-flag-conflicts">¶</a></h4><p>The analysis includes posts coded as related to eating disorders or body image (<code>ed_about = 1</code>). Eleven source rows say <code>noconcern = 0</code> even though shape, eating, and weight are all zero. We flag them and preserve their original labels because the released data cannot tell us which label is wrong. Repeated code patterns are not removed: different posts can share the same labels.</p>
 </div>
 </div>
 </div>
@@ -8352,7 +8351,7 @@ a.anchor-link {
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Save the full validated table and the related-post subset.</span>
 <span class="n">tw</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">INTER</span> <span class="o">/</span> <span class="s1">'twitter_validated.csv'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">twitter</span> <span class="o">=</span> <span class="n">tw</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">tw</span><span class="p">[</span><span class="s1">'ed_about'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="c1"># Audit a logical inconsistency without overwriting any original annotation.</span>
+<span class="c1"># Flag conflicting labels without changing the originals.</span>
 <span class="n">expected_none</span> <span class="o">=</span> <span class="p">(</span><span class="n">twitter</span><span class="p">[[</span><span class="s1">'shape'</span><span class="p">,</span> <span class="s1">'eating'</span><span class="p">,</span> <span class="s1">'weight'</span><span class="p">]]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 <span class="n">logic_mismatch</span> <span class="o">=</span> <span class="p">(</span><span class="n">twitter</span><span class="p">[</span><span class="s1">'noconcern'</span><span class="p">]</span> <span class="o">!=</span> <span class="n">expected_none</span><span class="p">)</span>
 <span class="n">twitter</span><span class="p">[</span><span class="s1">'noconcern_inconsistent'</span><span class="p">]</span> <span class="o">=</span> <span class="n">logic_mismatch</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'Int64'</span><span class="p">)</span>
@@ -8442,7 +8441,7 @@ Retained related posts: 2584 | Excluded unrelated/unknown: 416
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.4-Clean-TikTok-data">2.4 Clean TikTok data<a class="anchor-link" href="#2.4-Clean-TikTok-data">¶</a></h3><p>The public EDTT CSV has no post ID. We assign <code>record_id</code> from the original row order solely to track this file. We check exact duplicates but do not infer duplicate posts from similar summaries or shared audio.</p>
+<h3 id="2.4-Clean-TikTok-data">2.4 Clean TikTok data<a class="anchor-link" href="#2.4-Clean-TikTok-data">¶</a></h3><p>The public EDTT data do not include post IDs. We assign <code>record_id</code> from the original row order solely to track this file. We check exact duplicates but do not infer duplicate posts from similar summaries or shared audio.</p>
 <p>We standardize column names, trim surrounding whitespace, preserve annotation wording, validate numeric ranges and post format, and derive indicators from explicit category headers. Header matching is case-insensitive and allows a header after either a semicolon or a colon; this accommodates an observed separator inconsistency in the visual annotations. We do not silently fix item-level spelling errors or reinterpret free text.</p>
 <p>A blank EDE subscale field remains unknown for all four derived EDE indicators; it is not recoded to four zeros. A zero on a nonblank field means the category was not recorded there, not that a clinical symptom is absent. Blank diagnostic fields are also preserved; their meaning is not resolved by the inspected dictionary. Numeric audio labels are checked against the dictionary's thresholds, and disagreements are reported rather than overwritten.</p>
 </div>
@@ -8455,7 +8454,7 @@ Retained related posts: 2584 | Excluded unrelated/unknown: 416
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Read-and-tidy-the-columns">Read and tidy the columns<a class="anchor-link" href="#Read-and-tidy-the-columns">¶</a></h4><p>Keep all 13 source fields, trim surrounding spaces, and use consistent column names. Add a row number to trace each record; it is not a TikTok post ID.</p>
+<h4 id="Read-and-tidy-the-columns">Read and tidy the columns<a class="anchor-link" href="#Read-and-tidy-the-columns">¶</a></h4><p>We retained all 13 source fields, removed extra spaces, and standardized the column names. An added row number identifies each record within this file; it is not a TikTok post ID.</p>
 </div>
 </div>
 </div>
@@ -8467,7 +8466,7 @@ Retained related posts: 2584 | Excluded unrelated/unknown: 416
 <div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Normalize the EDTT schema while retaining raw strings and missingness.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Tidy column names and keep the original text and blank entries.</span>
 <span class="n">tt_raw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">RAW</span> <span class="o">/</span> <span class="s1">'EDTT_public.csv'</span><span class="p">)</span>
 <span class="n">tt</span> <span class="o">=</span> <span class="n">tt_raw</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">tt</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'[^a-z0-9]+'</span><span class="p">,</span> <span class="s1">'_'</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">'_'</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">tt</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
@@ -8486,7 +8485,7 @@ Retained related posts: 2584 | Excluded unrelated/unknown: 416
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Check-format-and-audio-values">Check format and audio values<a class="anchor-link" href="#Check-format-and-audio-values">¶</a></h4><p>Confirm that format is video or photos, audio fields are numeric, tempo is positive, and bounded scores fall between 0 and 1. Save this normalized table before adding features.</p>
+<h4 id="Check-format-and-audio-values">Check format and audio values<a class="anchor-link" href="#Check-format-and-audio-values">¶</a></h4><p>We checked the post formats and audio values against the source definitions. Tempo must be positive, and scores defined on a 0-to-1 scale must fall within that range. We saved this version before adding category labels.</p>
 </div>
 </div>
 </div>
@@ -8521,7 +8520,7 @@ Retained related posts: 2584 | Excluded unrelated/unknown: 416
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Turn-category-headers-into-labels">Turn category headers into labels<a class="anchor-link" href="#Turn-category-headers-into-labels">¶</a></h4><p>Create four EDE labels and seven visual labels from the category headers in the annotations. A recorded header becomes 1; an unrecorded header in nonblank text becomes 0. Blank EDE text stays unknown in all four labels. Header matching handles the separator variations found in the source without rewriting the annotation text.</p>
+<h4 id="Turn-category-headers-into-labels">Turn category headers into labels<a class="anchor-link" href="#Turn-category-headers-into-labels">¶</a></h4><p>We extracted four EDE labels and seven visual labels from the headings in the original annotations. A recorded header becomes 1; an unrecorded header in nonblank text becomes 0. Blank EDE text stays unknown in all four labels. Header matching handles the separator variations found in the source without rewriting the annotation text.</p>
 </div>
 </div>
 </div>
@@ -8567,7 +8566,7 @@ Retained related posts: 2584 | Excluded unrelated/unknown: 416
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Check-audio-labels-and-save">Check audio labels and save<a class="anchor-link" href="#Check-audio-labels-and-save">¶</a></h4><p>Compare the low, medium, and high labels with the published thresholds. Report disagreements without overwriting source labels. Keep all 85 rows and save the derived features for EDA.</p>
+<h4 id="Check-audio-labels-and-save">Check audio labels and save<a class="anchor-link" href="#Check-audio-labels-and-save">¶</a></h4><p>We compared the low, medium, and high audio labels with the published thresholds. Any disagreement is reported without changing the source label. All 85 posts remain in the saved data.</p>
 </div>
 </div>
 </div>
@@ -8752,8 +8751,8 @@ Known EDE annotation: 79 | Blank EDE annotation: 6
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.5-What-we-keep">2.5 What we keep<a class="anchor-link" href="#2.5-What-we-keep">¶</a></h3><p>The cleaning produces two separate analysis tables. No merge is performed because there is no shared observation key or equivalent sampling design. Source inconsistency: 11 Twitter rows have <code>noconcern=0</code> while all three concern fields are zero. We flag these rows in <code>noconcern_inconsistent</code>, retain the original codes, and save their synthetic IDs separately. The aversion denominator continues to follow the original source eligibility code, not a reconstructed universe. Without the original content we cannot adjudicate which field is wrong. No rows are removed from EDTT; Twitter excludes only the 342 unrelated and 74 unknown-relevance rows from its main analysis. We do not impute values, remove outliers, deduplicate identical annotation patterns, or recode structural blanks to zero.</p>
-<p>Intermediate files preserve the complete validated Twitter release and normalized EDTT release. Processed files preserve the variables needed for future analysis. The following audit documents sizes and retention; any future change to exclusions should be recorded as an amendment.</p>
+<h3 id="2.5-What-we-keep">2.5 What we keep<a class="anchor-link" href="#2.5-What-we-keep">¶</a></h3><p>The cleaning produces two separate analysis tables. We kept the datasets separate because their posts cannot be matched and their collection methods differ. Eleven Twitter rows have <code>noconcern=0</code> while all three concern fields are zero. We flag these rows in <code>noconcern_inconsistent</code>, retain the original codes, and save their synthetic IDs separately. The aversion denominator continues to follow the original source eligibility code, not a reconstructed universe. Without the original posts, we cannot determine which label is wrong. No rows are removed from EDTT; Twitter excludes only the 342 unrelated and 74 unknown-relevance rows from its main analysis. We do not impute values, remove outliers, deduplicate identical annotation patterns, or recode structural blanks to zero.</p>
+<p>Intermediate files preserve the complete validated Twitter release and normalized EDTT release. Processed files preserve the variables needed for future analysis. The table below records the number of posts retained. Any later changes to these exclusions will be documented.</p>
 </div>
 </div>
 </div>
@@ -8828,7 +8827,7 @@ Known EDE annotation: 79 | Blank EDE annotation: 6
 <div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Record row counts and retention decisions in a machine-readable audit.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Record how many posts remain and why any were excluded.</span>
 <span class="n">flow</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
  <span class="p">[</span><span class="s1">'Twitter'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tw_raw</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">twitter</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">tw_raw</span><span class="p">)</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">twitter</span><span class="p">),</span> <span class="s1">'ed_about must equal 1'</span><span class="p">],</span>
  <span class="p">[</span><span class="s1">'EDTT'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tt_raw</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">tiktok</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">'retain all public rows'</span><span class="p">]</span>
@@ -8926,7 +8925,7 @@ EDTT: 85 rows, 26 columns
 <div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Check that both cleaned tables are ready for the existing EDA.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Check the final tables before exploring the data.</span>
 <span class="k">assert</span> <span class="n">twitter</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">2584</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">tiktok</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">85</span><span class="p">,</span> <span class="mi">26</span><span class="p">)</span>
 <span class="k">assert</span> <span class="p">(</span><span class="n">twitter</span><span class="p">[</span><span class="s1">'ed_about'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
@@ -9061,7 +9060,7 @@ EDTT: 85 rows, 26 columns
 <div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Present the source-specific dictionary rather than equating similarly named fields.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Describe what each Twitter column means.</span>
 <span class="n">tw_dictionary</span> <span class="o">=</span> <span class="p">[</span>
  <span class="p">(</span><span class="s1">'id'</span><span class="p">,</span> <span class="s1">'Synthetic unique row ID'</span><span class="p">,</span> <span class="s1">'All 3,000'</span><span class="p">),</span>
  <span class="p">(</span><span class="s1">'ed_about'</span><span class="p">,</span> <span class="s1">'0 unrelated; 1 related; 9 unknown'</span><span class="p">,</span> <span class="s1">'All 3,000'</span><span class="p">),</span>
@@ -9341,7 +9340,7 @@ EDTT: 85 rows, 26 columns
 <h2 id="4.-Limitations">4. Limitations<a class="anchor-link" href="#4.-Limitations">¶</a></h2><ul>
 <li><strong>Selected samples.</strong> Both collections focus on ED-related material. Twitter keywords and EDTT's curation can overrepresent particular expressions. Their observed percentages are not prevalence estimates for all social media, all eating disorders, or all users. Recommendation surfacing during collection is not a measured user exposure or a randomized algorithm intervention.</li>
 <li><strong>Different sources.</strong> Source size, annotation rules, formats, selection, and time differ. A difference between datasets cannot isolate a platform effect or a historical trend. EDTT post dates are absent from the public file.</li>
-<li><strong>Missing outcomes.</strong> Neither supplied CSV has likes, view counts, viewer exposure, longitudinal food attitudes, or clinical outcomes. Thus engagement associations and changes in people's food relationships cannot be estimated here.</li>
+<li><strong>Missing outcomes.</strong> Neither dataset includes likes, view counts, viewer exposure, longitudinal food attitudes, or clinical outcomes. Thus engagement associations and changes in people's food relationships cannot be estimated here.</li>
 <li><strong>Labels can be imperfect.</strong> A category is an annotator's reading of content. The 11 Twitter inconsistencies may affect co-occurrence estimates; without text, we cannot resolve them. Codebook skip rules create structural blanks in Twitter; EDTT's blank EDE fields have an unresolved interpretation. Treating either kind of blank as zero would distort denominators. The EDTT parser extracts categories but cannot repair all ambiguity in free-text descriptions.</li>
 <li><strong>Small samples and repeated creators.</strong> Repeated creators, retweets, or reused audio can make rows dependent. Missing creator identifiers prevent reliable cluster adjustment. With only 85 EDTT rows (79 with EDE text), estimates can be unstable. Statistical intervals in future work will rely on assumptions that the release cannot fully verify.</li>
 <li><strong>Posts are not diagnoses.</strong> Irony, criticism, context, and annotation uncertainty complicate interpretation. A musical valence score is not emotional valence of the message. Equating labels with illness could stigmatize creators or lead to inappropriate moderation.</li>
@@ -9364,8 +9363,8 @@ EDTT: 85 rows, 26 columns
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="5.-Exploratory-data-analysis">5. Exploratory data analysis<a class="anchor-link" href="#5.-Exploratory-data-analysis">¶</a></h2><h3 id="5.1-Twitter-concerns">5.1 Twitter concerns<a class="anchor-link" href="#5.1-Twitter-concerns">¶</a></h3><p>Which concerns appear most often? A post can have several labels, so percentages need not add to 100. We count shape, eating, and weight separately here; their co-occurrence is reserved for the planned Twitter analysis.</p>
-<h4 id="Count-the-labels">Count the labels<a class="anchor-link" href="#Count-the-labels">¶</a></h4><p>This helper counts recorded labels and divides by the number of posts where each question applies. It skips blanks without treating them as zeros.</p>
+<h2 id="5.-Exploratory-data-analysis">5. Exploratory data analysis<a class="anchor-link" href="#5.-Exploratory-data-analysis">¶</a></h2><h3 id="5.1-Twitter-concerns">5.1 Twitter concerns<a class="anchor-link" href="#5.1-Twitter-concerns">¶</a></h3><p>We first examined how often each concern appears. Since a post can have several labels, the percentages need not add to 100. We count shape, eating, and weight separately here; their co-occurrence is reserved for the planned Twitter analysis.</p>
+<h4 id="Count-the-labels">Count the labels<a class="anchor-link" href="#Count-the-labels">¶</a></h4><p>For each label, we divide the number of recorded cases by the number of posts where that label applies. It skips blanks without treating them as zeros.</p>
 </div>
 </div>
 </div>
@@ -9598,7 +9597,7 @@ EDTT: 85 rows, 26 columns
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="5.2-TikTok-categories-and-blanks">5.2 TikTok categories and blanks<a class="anchor-link" href="#5.2-TikTok-categories-and-blanks">¶</a></h3><p>EDTT has 79 posts with EDE category text and six with blank fields. We leave those six unknown. This section answers question 1 and explains why question 3 currently has 79 usable posts.</p>
-<h4 id="Count-categories-and-missing-labels">Count categories and missing labels<a class="anchor-link" href="#Count-categories-and-missing-labels">¶</a></h4><p>For each category, calculate the known-label percentage and the possible range across all 85 posts. The minimum assumes none of the six unknown posts has that category; the maximum assumes all six do.</p>
+<h4 id="Count-categories-and-missing-labels">Count categories and missing labels<a class="anchor-link" href="#Count-categories-and-missing-labels">¶</a></h4><p>For each category, we calculate the percentage among known annotations and the possible range across all 85 posts. The minimum assumes none of the six unknown posts has that category; the maximum assumes all six do.</p>
 </div>
 </div>
 </div>
@@ -9795,7 +9794,7 @@ EDTT: 85 rows, 26 columns
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="5.3-Videos-and-photo-posts">5.3 Videos and photo posts<a class="anchor-link" href="#5.3-Videos-and-photo-posts">¶</a></h3><p>Do visual features differ by format? We compare percentages within the 47 videos and 38 photo posts, rather than comparing raw counts between unequal groups.</p>
+<h3 id="5.3-Videos-and-photo-posts">5.3 Videos and photo posts<a class="anchor-link" href="#5.3-Videos-and-photo-posts">¶</a></h3><p>We then compared visual features in the 47 videos and 38 photo posts. Percentages are calculated within each group to account for their different sizes.</p>
 <h4 id="Count-features-by-format">Count features by format<a class="anchor-link" href="#Count-features-by-format">¶</a></h4><p>The table records counts, group sizes, percentages, and the percentage-point difference. The full table is saved for checking individual values.</p>
 </div>
 </div>
@@ -10015,7 +10014,7 @@ EDTT: 85 rows, 26 columns
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="5.4-Audio-values">5.4 Audio values<a class="anchor-link" href="#5.4-Audio-values">¶</a></h3><p>All 85 EDTT posts have these audio measurements. Tempo is musical speed in beats per minute. Valence estimates musical positivity; arousal estimates energy. Both use a 0-to-1 scale and do not describe a person's feelings.</p>
-<h4 id="Summarize-the-values">Summarize the values<a class="anchor-link" href="#Summarize-the-values">¶</a></h4><p>Use <code>describe()</code> to calculate averages, spread, and quartiles. The median is the middle value; the 25th and 75th percentiles bound the middle half. We save the complete table and display it in two parts for readability.</p>
+<h4 id="Summarize-the-values">Summarize the values<a class="anchor-link" href="#Summarize-the-values">¶</a></h4><p>The following tables summarize the average, spread, and quartiles of each audio measure. The median is the middle value; the 25th and 75th percentiles bound the middle half. We save the complete table and display it in two parts for readability.</p>
 </div>
 </div>
 </div>
@@ -10283,7 +10282,7 @@ EDTT: 85 rows, 26 columns
 <h3 id="5.5-What-the-EDA-tells-us">5.5 What the EDA tells us<a class="anchor-link" href="#5.5-What-the-EDA-tells-us">¶</a></h3><p>We keep the three research questions and the same rows. The figures answer different parts of question 1: label frequency, uncertainty from blank annotations, visual features by format, and audio distributions.</p>
 <p>Shape concern is the main Twitter theme, while eating concern has a smaller but usable group. EDTT adds visual and audio measures, but only 79 posts have known EDE categories. These findings support one focused analysis per source rather than many comparisons.</p>
 <p>Questions 2 and 3 remain untested. Separate label percentages do not show whether shape and eating concerns co-occur, and the audio distributions do not show whether restraint relates to valence. Neither dataset measures algorithm exposure or changes in food attitudes.</p>
-<h2 id="6.-Questions-for-reviewers:-Part-1">6. Questions for reviewers: Part 1<a class="anchor-link" href="#6.-Questions-for-reviewers:-Part-1">¶</a></h2><p>These questions address issues raised in our team drafts and the data checks.</p>
+<h2 id="6.-Questions-for-reviewers:-Part-1">6. Questions for reviewers: Part 1<a class="anchor-link" href="#6.-Questions-for-reviewers:-Part-1">¶</a></h2><p>Our discussion raised questions about conflicting labels, missing annotations, and how the two datasets fit together.</p>
 <ol>
 <li>Should we retain the 11 inconsistent Twitter rows and compare the later model with and without them, as planned?</li>
 <li>Is leaving the six blank EDTT category fields unknown appropriate? Should we ask the source authors to clarify them before changing that rule?</li>
@@ -10291,9 +10290,9 @@ EDTT: 85 rows, 26 columns
 <li>Do the missing-label ranges and format comparisons help explain the data, or is another descriptive comparison more useful before modeling?</li>
 </ol>
 <h2 id="Part-2.-Preregistration-of-future-analyses">Part 2. Preregistration of future analyses<a class="anchor-link" href="#Part-2.-Preregistration-of-future-analyses">¶</a></h2><h3 id="What-has-been-viewed">What has been viewed<a class="anchor-link" href="#What-has-been-viewed">¶</a></h3><p>These plans follow the data audit and EDA, not an untouched dataset. We inspected source documentation, examples, the Twitter consistency check, individual-variable summaries, and visual features by format. We have not tabulated, correlated, or modeled the two planned predictor-outcome pairs.</p>
-<p>The October 19 revision clarifies the models without changing the hypotheses or fitting them. Save a dated copy before running the analyses and document later changes.</p>
-<h3 id="Reporting-plan">Reporting plan<a class="anchor-link" href="#Reporting-plan">¶</a></h3><p>We will report both analyses regardless of their direction or statistical significance, including counts, effect sizes, 95% confidence intervals, diagnostics, and limitations. Use two-sided tests. For the two primary p-values, apply Holm correction at 0.05 and show both original and adjusted values. The direction of each estimate determines whether it agrees with the hypothesis.</p>
-<p>Each row remains one post. An arbitrary number of posts is not a predictor: sample size affects precision, not the content of an individual post. A larger sample also does not remove selection bias, confounding, or dependence between posts.</p>
+<p>These plans were clarified on October 19 before either model was fitted. We will retain this dated version and document any later changes.</p>
+<h3 id="Reporting-plan">Reporting plan<a class="anchor-link" href="#Reporting-plan">¶</a></h3><p>We will report both analyses regardless of their direction or statistical significance, including counts, effect sizes, 95% confidence intervals, diagnostics, and limitations. We will use two-sided tests. We will apply Holm correction at 0.05 to the two primary p-values and report both original and adjusted values. The direction of each estimate determines whether it agrees with the hypothesis.</p>
+<p>Both models use individual posts as observations. Sample size affects precision, but it does not remove selection bias, confounding, or dependence between posts.</p>
 </div>
 </div>
 </div>
@@ -10305,12 +10304,12 @@ EDTT: 85 rows, 26 columns
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="7.-Preregistration-1:-Twitter-concerns">7. Preregistration 1: Twitter concerns<a class="anchor-link" href="#7.-Preregistration-1:-Twitter-concerns">¶</a></h2><h3 id="Hypothesis">Hypothesis<a class="anchor-link" href="#Hypothesis">¶</a></h3><p>Among related Twitter posts, posts with a shape-concern label are more likely to have an eating-concern label. Body-image and food concerns may be expressed together, but this is a hypothesis about content, not a claim about illness or causation.</p>
-<h3 id="Data-and-variables">Data and variables<a class="anchor-link" href="#Data-and-variables">¶</a></h3><p>Use the 2,584 rows in <code>twitter_related.csv</code>. The outcome is <code>eating</code> (0 or 1); the predictor is <code>shape</code> (0 or 1). Keep the original labels and all valid IDs. Exclude and count any missing predictor or outcome; none are currently missing. Keep the 11 flagged rows in the main analysis, then repeat it without them as a secondary check.</p>
-<h3 id="Planned-model">Planned model<a class="anchor-link" href="#Planned-model">¶</a></h3><p>Use logistic regression because the outcome is yes/no:</p>
+<h3 id="Data-and-variables">Data and variables<a class="anchor-link" href="#Data-and-variables">¶</a></h3><p>The Twitter analysis will use the 2,584 related posts. The outcome is <code>eating</code> (0 or 1); the predictor is <code>shape</code> (0 or 1). We will keep the original labels and all valid IDs. We will exclude and count any missing predictor or outcome; none are currently missing. We will keep the 11 flagged rows in the main analysis, then repeat it without them as a secondary check.</p>
+<h3 id="Planned-model">Planned model<a class="anchor-link" href="#Planned-model">¶</a></h3><p>We will use logistic regression because the outcome is yes/no:</p>
 <p><code>logit[P(eating = 1)] = beta_0 + beta_1 * shape</code></p>
-<p>We expect <code>beta_1 &gt; 0</code>. Test <code>beta_1 = 0</code> with a two-sided coefficient test. Report the odds ratio <code>exp(beta_1)</code>, its 95% confidence interval, and the predicted probability for each shape group. Also report the probability difference so the result is understandable without interpreting odds. The model is fit to individual posts, not an invented total or percentage for a batch of posts.</p>
-<h3 id="Checks-and-reporting">Checks and reporting<a class="anchor-link" href="#Checks-and-reporting">¶</a></h3><p>In the final phase, show the 2-by-2 counts and fit the model with statsmodels. Flag cells with fewer than five posts. If a cell is zero or the model fails because of separation, use a two-sided Fisher exact test and an exact odds-ratio interval instead. If either variable has no variation, report that the association cannot be estimated. Report any fallback and the secondary analysis excluding flagged rows.</p>
-<p>Correlation and covariance between two binary labels are not needed as additional tests of the same hypothesis. Logistic regression directly addresses the planned comparison.</p>
+<p>We expect <code>beta_1 &gt; 0</code>. We will test <code>beta_1 = 0</code> with a two-sided coefficient test. We will report the odds ratio <code>exp(beta_1)</code>, its 95% confidence interval, and the predicted probability for each shape group. We will also report the probability difference so the result is understandable without interpreting odds. Each observation in the model represents one post.</p>
+<h3 id="Checks-and-reporting">Checks and reporting<a class="anchor-link" href="#Checks-and-reporting">¶</a></h3><p>In the final phase, we will show the 2-by-2 counts and fit the model with statsmodels. Flag cells with fewer than five posts. If a cell is zero or the model fails because of separation, use a two-sided Fisher exact test and an exact odds-ratio interval instead. If either variable has no variation, report that the association cannot be estimated. Report any fallback and the secondary analysis excluding flagged rows.</p>
+<p>Logistic regression allows us to compare the probability of an eating-concern label between the two shape-concern groups.</p>
 <h3 id="Limits">Limits<a class="anchor-link" href="#Limits">¶</a></h3><p>The relationship may reflect shared coding practices or repeated creators. Account type and post length are unavailable; <code>noconcern</code> is determined by the concern labels and should not be used as a control. Without creator IDs, uncertainty estimates may be too narrow. We will describe an association in this sample, not a causal or population-wide effect.</p>
 </div>
 </div>
@@ -10323,13 +10322,13 @@ EDTT: 85 rows, 26 columns
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="8.-Preregistration-2:-Restraint-and-audio">8. Preregistration 2: Restraint and audio<a class="anchor-link" href="#8.-Preregistration-2:-Restraint-and-audio">¶</a></h2><h3 id="Hypothesis">Hypothesis<a class="anchor-link" href="#Hypothesis">¶</a></h3><p>EDTT posts with a recorded restraint label have lower average audio valence than posts without that label, after accounting for format. This asks whether food-restriction content has a different musical tone. The direction is uncertain: upbeat or ironic music could produce the opposite result.</p>
-<h3 id="Data-and-variables">Data and variables<a class="anchor-link" href="#Data-and-variables">¶</a></h3><p>Use posts with nonblank EDE text and valid audio valence and format, currently 79 rows. The outcome is <code>audio_valence</code> on its 0-to-1 scale. The predictor <code>ede_restraint</code> is 1 when the Restraint header is recorded and 0 when nonblank text lacks it. Code <code>photos = 1</code> for photo slideshows and 0 for videos. Exclude the six unknown EDE rows from the primary model; do not treat blanks as confirmed absence.</p>
-<h3 id="Planned-model">Planned model<a class="anchor-link" href="#Planned-model">¶</a></h3><p>Use linear regression with format included:</p>
+<h3 id="Data-and-variables">Data and variables<a class="anchor-link" href="#Data-and-variables">¶</a></h3><p>We will use posts with nonblank EDE text and valid audio valence and format, currently 79 rows. The outcome is <code>audio_valence</code> on its 0-to-1 scale. The predictor <code>ede_restraint</code> is 1 when the Restraint header is recorded and 0 when nonblank text lacks it. We will code <code>photos = 1</code> for photo slideshows and 0 for videos. We will exclude the six unknown EDE rows from the primary model; do not treat blanks as confirmed absence.</p>
+<h3 id="Planned-model">Planned model<a class="anchor-link" href="#Planned-model">¶</a></h3><p>We will use linear regression with format included:</p>
 <p><code>audio_valence = beta_0 + beta_1 * ede_restraint + beta_2 * photos + error</code></p>
-<p>We expect <code>beta_1 &lt; 0</code>. It represents the mean valence difference between restraint groups at the same format. Compare predicted valence for restraint = 0 and restraint = 1 within each format. No arbitrary post-count predictor is needed, and Twitter shape/eating correlations do not address this TikTok hypothesis.</p>
-<h3 id="Checks-and-reporting">Checks and reporting<a class="anchor-link" href="#Checks-and-reporting">¶</a></h3><p>Fit the model with statsmodels, using HC3 robust standard errors and t-based inference (<code>use_t=True</code>). Report the coefficient, 95% interval, two-sided p-value, group sizes, R-squared, and predictions by restraint and format. Inspect residuals and influential rows; flag Cook's distance above <code>4/n</code> but keep these rows in the main model. Report predictions outside 0 to 1. If predictors have no variation or cannot be separated, report that the model cannot estimate the requested effect.</p>
+<p>We expect <code>beta_1 &lt; 0</code>. It represents the mean valence difference between restraint groups at the same format. We will compare predicted valence for restraint = 0 and restraint = 1 within each format. The comparison will hold format constant while varying restraint status.</p>
+<h3 id="Checks-and-reporting">Checks and reporting<a class="anchor-link" href="#Checks-and-reporting">¶</a></h3><p>We will fit the model with statsmodels, using HC3 robust standard errors and t-based inference (<code>use_t=True</code>). Report the coefficient, 95% interval, two-sided p-value, group sizes, R-squared, and predictions by restraint and format. Inspect residuals and influential rows; flag Cook's distance above <code>4/n</code> but keep these rows in the main model. Report predictions outside 0 to 1. If predictors have no variation or cannot be separated, report that the model cannot estimate the requested effect.</p>
 <p>As secondary missing-data checks, repeat the model twice: assign all six unknown restraint labels to 0, then to 1. Report both estimates as scenarios, not proven bounds or replacements for the primary model. Do not remove outliers or change predictors after seeing which result is significant.</p>
-<h3 id="Limits">Limits<a class="anchor-link" href="#Limits">¶</a></h3><p>Format is available and relevant to how posts combine images and sound; it does not account for every possible confounder. Account type, post length, and reliable creator identifiers are unavailable. Only 79 posts enter the primary analysis, not thousands. Robust standard errors address unequal residual variance, not selection bias or repeated audio. Musical valence is not a measure of a viewer's emotions or health.</p>
+<h3 id="Limits">Limits<a class="anchor-link" href="#Limits">¶</a></h3><p>Format is available and relevant to how posts combine images and sound; it does not account for every possible confounder. Account type, post length, and reliable creator identifiers are unavailable. The primary analysis includes only 79 posts, which limits precision. Robust standard errors address unequal residual variance, not selection bias or repeated audio. Musical valence is not a measure of a viewer's emotions or health.</p>
 </div>
 </div>
 </div>
@@ -10342,13 +10341,12 @@ EDTT: 85 rows, 26 columns
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Appendix-A.-Data-cleaning-appendix-and-reproducibility">Appendix A. Data cleaning appendix and reproducibility<a class="anchor-link" href="#Appendix-A.-Data-cleaning-appendix-and-reproducibility">¶</a></h2><p><strong>Files.</strong> data/raw/ contains unchanged source downloads and the checksum manifest. <code>data/intermediate/</code> contains validated/normalized snapshots. <code>data/processed/</code> contains analysis tables and audits. <code>figures/</code> contains the four charts. The download bundle includes these files, the executed notebook, its HTML view, and the combined PDF. In GitHub, the notebook is in notebooks/ and the report is in <code>reports/phase2/</code>.</p>
 <p><strong>Re-run.</strong> Extract the full ZIP, install the packages in <code>requirements.txt</code> in a Python environment, open this notebook from the extracted directory, select that environment's kernel, and choose Restart Kernel and Run All. A complete local bundle runs offline. A notebook opened alone in Colab needs internet access on its first run to restore the saved inputs from GitHub. Processed files and figures are overwritten reproducibly. All code cells should finish without errors. No proposed inferential analyses are implemented here.</p>
-<p><strong>Hosted raw inputs.</strong> The <a href="https://github.com/AnyaChoudhary/info2950-fall2026-project/tree/905e574351e821300dc5b199747216a3bd630e1b/data/raw">verified GitHub raw-data folder</a> contains both original CSVs, the Twitter codebook and filtering appendix, and <code>manifest.json</code>. These are the exact bytes used in this execution. The publisher links in Section 2 provide independent access to the original releases.</p>
+<p><strong>Hosted raw inputs.</strong> The <a href="https://github.com/AnyaChoudhary/info2950-fall2026-project/tree/905e574351e821300dc5b199747216a3bd630e1b/data/raw">verified GitHub raw-data folder</a> contains both original datasets, the Twitter codebook and filtering appendix, and <code>manifest.json</code>. These are the exact bytes used in this execution. The publisher links in Section 2 provide independent access to the original releases.</p>
 <p><strong>Cleaning trace.</strong> Section 2.2 verifies the four original files; Section 2.3 validates Twitter codes and their conditional universes, saves all 3,000 rows, retains 2,584 related posts, and flags 11 logical inconsistencies; Section 2.4 normalizes all 85 EDTT rows and derives 11 category indicators plus a count while preserving six unknown EDE annotations; Section 2.5 saves row-flow and eligibility audits. Sections 5.1–5.4 generate the displayed summaries and figures from those analysis-ready files. Every code cell has an executed output or visible saved-file result, and the proposed inference remains unperformed.</p>
 <h2 id="Appendix-B.-References">Appendix B. References<a class="anchor-link" href="#Appendix-B.-References">¶</a></h2><ol>
 <li>Cavazos-Rehg, P. A., et al. (2019). “I just want to be skinny.”: A content analysis of tweets expressing eating disorder symptoms. <em>PLOS ONE</em>, 14(1), e0207506. <a href="https://doi.org/10.1371/journal.pone.0207506">https://doi.org/10.1371/journal.pone.0207506</a>. S1 Dataset, S1 Codebook, and S1 Appendix are bundled unchanged.</li>
 <li>Shaveet, E., Viranda, T., &amp; Choudhury, T. (2026). <em>EDTT Dataset</em>, version 2. Zenodo. <a href="https://doi.org/10.5281/zenodo.19749827">https://doi.org/10.5281/zenodo.19749827</a>. Public dictionary: <a href="https://edenshaveet.github.io/EDTT/">https://edenshaveet.github.io/EDTT/</a>.</li>
 <li>Project repository: <a href="https://github.com/AnyaChoudhary/info2950-fall2026-project">https://github.com/AnyaChoudhary/info2950-fall2026-project</a>. Raw-data snapshot linked in Section 2.</li>
-<li>INFO 2950, Fall 2026. <em>Phase II: Exploratory analysis and hypotheses</em>. User-supplied course rubric, read in full. Its datasheet-style prompts guide Sections 3 and 4.</li>
 </ol>
 </div>
 </div>
@@ -10360,9 +10358,9 @@ EDTT: 85 rows, 26 columns
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="9.-Questions-for-reviewers:-Part-2">9. Questions for reviewers: Part 2<a class="anchor-link" href="#9.-Questions-for-reviewers:-Part-2">¶</a></h2><p>These questions build on our team's model-choice, omitted-variable, and presentation concerns.</p>
+<h2 id="9.-Questions-for-reviewers:-Part-2">9. Questions for reviewers: Part 2<a class="anchor-link" href="#9.-Questions-for-reviewers:-Part-2">¶</a></h2><p>We would like feedback on the models, the limits of the available variables, and how clearly the planned analyses are described.</p>
 <ol>
-<li>Is logistic regression the right choice for Twitter's binary outcome, and is the proposed sparse-cell fallback suitable for this course?</li>
+<li>Is logistic regression the right choice for Twitter's binary outcome, and is the proposed fallback appropriate when some groups contain very few posts?</li>
 <li>Is a linear model with format appropriate for EDTT valence, given the bounded scale and 79 usable posts? Are the planned robust intervals and residual checks sufficient?</li>
 <li>With account type, post length, and creator IDs unavailable, should we narrow the interpretation further or seek additional data before modeling? We recognize that more posts alone would not remove these biases.</li>
 <li>Are the two extreme assignments for the six unknown restraint labels useful sensitivity checks, or should source-author clarification take priority?</li>
